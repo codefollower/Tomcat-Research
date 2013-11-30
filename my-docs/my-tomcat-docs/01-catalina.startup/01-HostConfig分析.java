@@ -1,69 +1,69 @@
 1.
-ContextNameÀà4¸ö±äÁ¿µÄº¬Òå:
+ContextNameç±»4ä¸ªå˜é‡çš„å«ä¹‰:
     private final String baseName;
     private final String path;
     private final String version;
     private final String name;
-¶ÔÓÚ"aaa#bbb##1.0.0"ÕâÑùµÄÄ¿Â¼Ãû:
+å¯¹äº"aaa#bbb##1.0.0"è¿™æ ·çš„ç›®å½•å:
 baseName = aaa#bbb##1.0.0
 path     = /aaa/bbb
 name     = /aaa/bbb##1.0.0
 version  = 1.0.0
 
-baseName¾ÍÊÇ×îÔ­Ê¼µÄÄ¿Â¼Ãû
-name±Èpath¶àÁËÒ»¸ö°æ±¾ºÅ£¬
-Á½¸öÁ¬ĞøµÄ##Ö®ºóÊÇ°æ±¾ºÅ£¬µ¥¸ö#ºÅ±íÊ¾Ä¿Â¼·Ö¸ô·û
+baseNameå°±æ˜¯æœ€åŸå§‹çš„ç›®å½•å
+nameæ¯”pathå¤šäº†ä¸€ä¸ªç‰ˆæœ¬å·ï¼Œ
+ä¸¤ä¸ªè¿ç»­çš„##ä¹‹åæ˜¯ç‰ˆæœ¬å·ï¼Œå•ä¸ª#å·è¡¨ç¤ºç›®å½•åˆ†éš”ç¬¦
 
 
 2.
-HostConfigÀàÓĞÕâ¸ö±äÁ¿:
+HostConfigç±»æœ‰è¿™ä¸ªå˜é‡:
 	protected boolean deployXML = false;
     protected boolean copyXML = false;
     protected boolean unpackWARs = false;
 
-StandardHostÒ²ÓĞÈı¸ö±äÁ¿
+StandardHostä¹Ÿæœ‰ä¸‰ä¸ªå˜é‡
     private boolean deployXML = true;
     private boolean copyXML = false;
     private boolean unpackWARs = true;
 
 
-HostConfigÀàÊÇÒ»¸öLifecycleListener, Ä¬ÈÏÊÇStandardHostµÄLifecycleListener£¬
-ÔÚlifecycleEvent·½·¨ÖĞ»áÄ¬ÈÏÓÃStandardHostµÄÈı¸ö×Ö¶ÎµÄÖµ¸²¸ÇHostConfigÀàÀïÍ·µÄ¡£
+HostConfigç±»æ˜¯ä¸€ä¸ªLifecycleListener, é»˜è®¤æ˜¯StandardHostçš„LifecycleListenerï¼Œ
+åœ¨lifecycleEventæ–¹æ³•ä¸­ä¼šé»˜è®¤ç”¨StandardHostçš„ä¸‰ä¸ªå­—æ®µçš„å€¼è¦†ç›–HostConfigç±»é‡Œå¤´çš„ã€‚
 
-deployXMLµÄÒâË¼ÊÇ: ²¿ÊğwebÓ¦ÓÃÊ±£¬ÊÇ·ñ°´META-INF\context.xmlÎÄ¼ş²¿Êğ£¬
-±ÈÈç: 
+deployXMLçš„æ„æ€æ˜¯: éƒ¨ç½²webåº”ç”¨æ—¶ï¼Œæ˜¯å¦æŒ‰META-INF\context.xmlæ–‡ä»¶éƒ¨ç½²ï¼Œ
+æ¯”å¦‚: 
 tomcat\webapps\host-manager\META-INF\context.xml
 tomcat\webapps\manager\META-INF\context.xml
 
 
-copyXMLµÄÒâË¼ÊÇ: 
-µ±deployXML=trueÊ±£¬ÊÇ·ñ°ÑMETA-INF\context.xml¸´ÖÆµ½tomcat\conf\<engine>\<host>Ä¿Â¼µ±ÖĞ£¬
-²¢ÇÒcontext.xmlÎÄ¼şÃû±ä³É"Ó¦ÓÃÃû.xml"
+copyXMLçš„æ„æ€æ˜¯: 
+å½“deployXML=trueæ—¶ï¼Œæ˜¯å¦æŠŠMETA-INF\context.xmlå¤åˆ¶åˆ°tomcat\conf\<engine>\<host>ç›®å½•å½“ä¸­ï¼Œ
+å¹¶ä¸”context.xmlæ–‡ä»¶åå˜æˆ"åº”ç”¨å.xml"
 
-±ÈÈç£¬tomcat\webapps\manager\META-INF\context.xmlµ±deployXML=trueÇÒcopyXML=trueÊ±£¬
-»á¸´ÖÆµ½tomcat\conf\Catalina\localhost\manager.xml
+æ¯”å¦‚ï¼Œtomcat\webapps\manager\META-INF\context.xmlå½“deployXML=trueä¸”copyXML=trueæ—¶ï¼Œ
+ä¼šå¤åˆ¶åˆ°tomcat\conf\Catalina\localhost\manager.xml
 
 
 3.
 HostConfig.deployDirectory
 
-»á°Ñ
-E:\Tomcat7-SVN\launch\webapps\aaa#bbb##1.0.0Õâ¸ö¾ø¶ÔÂ·¾¶ÃûºÍËüµÄ×î½üÒ»´ÎÄ¿Â¼ĞŞ¸ÄÊ±¼ä·Åµ½deployedApp.redeployResources
-Í¬Ñù»á°ÑE:\Tomcat7-SVN\launch\conf\Catalina\localhost\aaa#bbb##1.0.0.xml
-»òÕßE:\Tomcat7-SVN\launch\webapps\aaa#bbb##1.0.0\META-INF\context.xmlÒ²·Åµ½deployedApp.redeployResources
+ä¼šæŠŠ
+E:\Tomcat7-SVN\launch\webapps\aaa#bbb##1.0.0è¿™ä¸ªç»å¯¹è·¯å¾„åå’Œå®ƒçš„æœ€è¿‘ä¸€æ¬¡ç›®å½•ä¿®æ”¹æ—¶é—´æ”¾åˆ°deployedApp.redeployResources
+åŒæ ·ä¼šæŠŠE:\Tomcat7-SVN\launch\conf\Catalina\localhost\aaa#bbb##1.0.0.xml
+æˆ–è€…E:\Tomcat7-SVN\launch\webapps\aaa#bbb##1.0.0\META-INF\context.xmlä¹Ÿæ”¾åˆ°deployedApp.redeployResources
 
-½Ó×ÅÍ¨¹ıHostConfig.addWatchedResources£¬
-°Ñ¿ÉÄÜ»áreloadµÄ×ÊÔ´¼Óµ½deployedApp.reloadResources
-±ÈÈç: E:\Tomcat7-SVN\launch\webapps\aaa#bbb##1.0.0\WEB-INF\web.xml
-
-
-DeployedApplication´ú±íÒ»¸öÒÑ²¿ÊğµÄÓ¦ÓÃ£¬DeployedApplicationÓëÓ¦ÓÃÊÇÒ»Ò»¶ÔÓ¦¹ØÏµ£¬
-redeployResourcesµÄ¼¶±ğ±ÈreloadResourcesÒª´ó£¬Ç°ÕßÊÇÕë¶ÔÓ¦ÓÃ£¬ºóÕßÊÇÓ¦ÓÃÖĞµÄÄ³Ğ©×ÊÔ´
-Á½Õß¶¼ÊÇmap£¬keyÊÇ¾ø¶ÔÂ·¾¶Ãû£¬valueÊÇlongÀàĞÍ
+æ¥ç€é€šè¿‡HostConfig.addWatchedResourcesï¼Œ
+æŠŠå¯èƒ½ä¼šreloadçš„èµ„æºåŠ åˆ°deployedApp.reloadResources
+æ¯”å¦‚: E:\Tomcat7-SVN\launch\webapps\aaa#bbb##1.0.0\WEB-INF\web.xml
 
 
-×îºóÔÙµ÷ÓÃHostConfig.addGlobalRedeployResources:
-¿´¿´ÏÂÃæÁ½¸öÎÄ¼şÊÇ·ñ´æÔÚ£¬´æÔÚµÄ»°¼ÓÈëredeployResources
-E:\Tomcat7-SVN\launch\conf\Catalina\localhost\context.xml.default (Õâ¸öÄ¬ÈÏĞÔ¿öÏÂ²»´æÔÚ)
+DeployedApplicationä»£è¡¨ä¸€ä¸ªå·²éƒ¨ç½²çš„åº”ç”¨ï¼ŒDeployedApplicationä¸åº”ç”¨æ˜¯ä¸€ä¸€å¯¹åº”å…³ç³»ï¼Œ
+redeployResourcesçš„çº§åˆ«æ¯”reloadResourcesè¦å¤§ï¼Œå‰è€…æ˜¯é’ˆå¯¹åº”ç”¨ï¼Œåè€…æ˜¯åº”ç”¨ä¸­çš„æŸäº›èµ„æº
+ä¸¤è€…éƒ½æ˜¯mapï¼Œkeyæ˜¯ç»å¯¹è·¯å¾„åï¼Œvalueæ˜¯longç±»å‹
+
+
+æœ€åå†è°ƒç”¨HostConfig.addGlobalRedeployResources:
+çœ‹çœ‹ä¸‹é¢ä¸¤ä¸ªæ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œå­˜åœ¨çš„è¯åŠ å…¥redeployResources
+E:\Tomcat7-SVN\launch\conf\Catalina\localhost\context.xml.default (è¿™ä¸ªé»˜è®¤æ€§å†µä¸‹ä¸å­˜åœ¨)
 E:\Tomcat7-SVN\launch\conf\context.xml
 

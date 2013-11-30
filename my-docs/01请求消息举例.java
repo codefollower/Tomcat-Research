@@ -1,6 +1,6 @@
-1. google�����(chrome)
-(ע: ��һ����̬���󵥶���һ��Socket�������̬���󷵻ص���Ӧҳ���а�������ͼƬ���ٵ�����һ��Socket���ʣ�
-���һ�������⣬��һ��/favicon.ico��������chrome�Զ���)
+1. google浏览器(chrome)
+(注: 第一个动态请求单独用一个Socket，这个动态请求返回的响应页面中包含两个图片，再单独用一个Socket访问，
+最后一个很特殊，是一个/favicon.ico，而且是chrome自动加)
 accept: Socket[addr=/127.0.0.1,port=2418,localport=8080]
 GET /examples/servlets/servlet/SessionExample HTTP/1.1
 Host: 127.0.0.1:8080
@@ -55,8 +55,8 @@ Accept-Language: zh-CN,zh;q=0.8
 Accept-Charset: GBK,utf-8;q=0.7,*;q=0.3
 
 
-2. ���������(Maxthon)
-(ע: ��һ����̬����͵�һ��ͼƬ������һ��Socket����һ��ͼƬ�ٵ�����һ��Socket����)
+2. 遨游浏览器(Maxthon)
+(注: 第一个动态请求和第一张图片单独用一个Socket，另一张图片再单独用一个Socket访问)
 
 accept: Socket[addr=/127.0.0.1,port=2439,localport=8080]
 GET /examples/servlets/servlet/SessionExample HTTP/1.1

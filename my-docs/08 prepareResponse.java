@@ -1,21 +1,21 @@
-CHUNKEDºÍGZIP¿ÉÒÔ»ìºÏÊ¹ÓÃ£¬
-µ«ÊÇÒªÏÈgzip£¬È»ºóÔÙ°ÑgzipºóµÄÄÚÈİ·Öchunked£¬²»ÄÜÏÈchunkedÔÙgzip£¬
-ÕâÑùä¯ÀÀÆ÷ÊÕµ½ºó°ÑËùÓĞµÄchunkºÏ²¢ÔÚÒ»ÆğÔÙ½âÑ¹¡£
+CHUNKEDå’ŒGZIPå¯ä»¥æ··åˆä½¿ç”¨ï¼Œ
+ä½†æ˜¯è¦å…ˆgzipï¼Œç„¶åå†æŠŠgzipåçš„å†…å®¹åˆ†chunkedï¼Œä¸èƒ½å…ˆchunkedå†gzipï¼Œ
+è¿™æ ·æµè§ˆå™¨æ”¶åˆ°åæŠŠæ‰€æœ‰çš„chunkåˆå¹¶åœ¨ä¸€èµ·å†è§£å‹ã€‚
 
 
-ÏìÓ¦Êä³öÓĞÒ»¸öFilterÁ´£¬
-Á´ÖĞµÄ×îºóÒ»¸öÊÇorg.apache.coyote.http11.InternalOutputBuffer.OutputStreamOutputBuffer(BIO)
-Ç°ÃæµÄFilter¶¼²»»áÕæÊµÊä³ö×Ö½Ú£¬Ö»ÊÇ×öÒ»Ğ©ÌØÊâ´¦Àí£¬±ÈÈçgzip£¬chunkedµÈ£¬
-ÍùsocketÖĞÊä³ö×Ö½ÚÊÇÔÚOutputStreamOutputBufferÖĞ×ö£¬
-Èç¹ûFilterÁ´ÓĞVoidOutputFilter£¬ÄÇÃ´ÒâÎ¶×ÅÖ´ĞĞµ½VoidOutputFilterÊ±£¬Á´¾Í±»¶ÏµôÁË£¬
-Ò²¾ÍÊÇ²»ÔÚµ÷ÓÃÏÂÒ»¸öFilterµÄdoWrite·½·¨£¬´Ó¶ø²»»áÍùsocketÖĞÊä³ö×Ö½Ú¡£
-VoidOutputFilterÍ¨³£ÓÃÔÚHEADÇëÇó£¬»òÕßÏìÓ¦×´Ì¬ÂëÊÇ204,205,304
+å“åº”è¾“å‡ºæœ‰ä¸€ä¸ªFilteré“¾ï¼Œ
+é“¾ä¸­çš„æœ€åä¸€ä¸ªæ˜¯org.apache.coyote.http11.InternalOutputBuffer.OutputStreamOutputBuffer(BIO)
+å‰é¢çš„Filteréƒ½ä¸ä¼šçœŸå®è¾“å‡ºå­—èŠ‚ï¼Œåªæ˜¯åšä¸€äº›ç‰¹æ®Šå¤„ç†ï¼Œæ¯”å¦‚gzipï¼Œchunkedç­‰ï¼Œ
+å¾€socketä¸­è¾“å‡ºå­—èŠ‚æ˜¯åœ¨OutputStreamOutputBufferä¸­åšï¼Œ
+å¦‚æœFilteré“¾æœ‰VoidOutputFilterï¼Œé‚£ä¹ˆæ„å‘³ç€æ‰§è¡Œåˆ°VoidOutputFilteræ—¶ï¼Œé“¾å°±è¢«æ–­æ‰äº†ï¼Œ
+ä¹Ÿå°±æ˜¯ä¸åœ¨è°ƒç”¨ä¸‹ä¸€ä¸ªFilterçš„doWriteæ–¹æ³•ï¼Œä»è€Œä¸ä¼šå¾€socketä¸­è¾“å‡ºå­—èŠ‚ã€‚
+VoidOutputFilteré€šå¸¸ç”¨åœ¨HEADè¯·æ±‚ï¼Œæˆ–è€…å“åº”çŠ¶æ€ç æ˜¯204,205,304
 
 
-http09Ğ­ÒéÊÇÃ»ÓĞÏìÓ¦Í·µÄ£¬Ò²Ã»ÓĞgzipºÍchunked£¬Ö±½ÓÊä³öÄÚÈİ
+http09åè®®æ˜¯æ²¡æœ‰å“åº”å¤´çš„ï¼Œä¹Ÿæ²¡æœ‰gzipå’Œchunkedï¼Œç›´æ¥è¾“å‡ºå†…å®¹
 
 
-prepareResponse·½·¨ÖĞÒªĞ´ÏìÓ¦ĞĞ¡¢ÏìÓ¦Í·
-ÏìÓ¦ĞĞ¡¢ÏìÓ¦Í·ÔÚprepareResponse·½·¨Ö´ĞĞÊ±Ä¬ÈÏÇé¿öÏÂ²¢²»Á¢¼´Ğ´Íùä¯ÀÀÆ÷£¬
-ÒòÎªorg.apache.coyote.http11.InternalOutputBuffer»¹ÓĞ¸öByteChunk socketBuffer£¬
-Ğ´ÍùÏûÏ¢Ìåºó²ÅÒ»´ÎĞÔÊä³öµ½ä¯ÀÀÆ÷¡£
+prepareResponseæ–¹æ³•ä¸­è¦å†™å“åº”è¡Œã€å“åº”å¤´
+å“åº”è¡Œã€å“åº”å¤´åœ¨prepareResponseæ–¹æ³•æ‰§è¡Œæ—¶é»˜è®¤æƒ…å†µä¸‹å¹¶ä¸ç«‹å³å†™å¾€æµè§ˆå™¨ï¼Œ
+å› ä¸ºorg.apache.coyote.http11.InternalOutputBufferè¿˜æœ‰ä¸ªByteChunk socketBufferï¼Œ
+å†™å¾€æ¶ˆæ¯ä½“åæ‰ä¸€æ¬¡æ€§è¾“å‡ºåˆ°æµè§ˆå™¨ã€‚

@@ -1,16 +1,16 @@
-ÔÚwebappsÀïÍ·µÄÓ¦ÓÃ¼ÓÉÏMETA-INF\context.xmlÎÄ¼şÊ±£¬
-»á¸´ÖÆÒ»·İconf\Catalina\localhost£¬ĞÂ¸´ÖÆµÄÎÄ¼şÃûÊÇÓ¦ÓÃÃû£¬ÎÄ¼şÄÚÈİÒ»Ñù£¬
-µ«ÊÇµ±ĞŞ¸ÄMETA-INF\context.xmlÎÄ¼şµÄÄÚÈİÊ±£¬conf\Catalina\localhostÖĞµÄÎÄ¼şÄÚÈİÃ»ÓĞ¸üĞÂ£¬
-ÖØĞÂÆô¶¯TomcatÊ±£¬Ê¹ÓÃµÄÊÇconf\Catalina\localhostÖĞµÄÎÄ¼ş£¬¶ø²»ÊÇMETA-INF\context.xmlÎÄ¼ş¡£
+åœ¨webappsé‡Œå¤´çš„åº”ç”¨åŠ ä¸ŠMETA-INF\context.xmlæ–‡ä»¶æ—¶ï¼Œ
+ä¼šå¤åˆ¶ä¸€ä»½conf\Catalina\localhostï¼Œæ–°å¤åˆ¶çš„æ–‡ä»¶åæ˜¯åº”ç”¨åï¼Œæ–‡ä»¶å†…å®¹ä¸€æ ·ï¼Œ
+ä½†æ˜¯å½“ä¿®æ”¹META-INF\context.xmlæ–‡ä»¶çš„å†…å®¹æ—¶ï¼Œconf\Catalina\localhostä¸­çš„æ–‡ä»¶å†…å®¹æ²¡æœ‰æ›´æ–°ï¼Œ
+é‡æ–°å¯åŠ¨Tomcatæ—¶ï¼Œä½¿ç”¨çš„æ˜¯conf\Catalina\localhostä¸­çš„æ–‡ä»¶ï¼Œè€Œä¸æ˜¯META-INF\context.xmlæ–‡ä»¶ã€‚
 
-Èçwebapps\test\META-INF\context.xml
+å¦‚webapps\test\META-INF\context.xml
 
 <Context antiResourceLocking="false" privileged="true">
 	<Parameter name="myname" value="myvalue1" override="true" description="mydescription" />
 	<Parameter name="myname" value="myvalue2" override="false" description="mydescription" />
 </Context>
 
-µÃµ½:
+å¾—åˆ°:
 conf\Catalina\localhost\test.xml
 
 <Context antiResourceLocking="false" privileged="true">
@@ -18,18 +18,18 @@ conf\Catalina\localhost\test.xml
 	<Parameter name="myname" value="myvalue2" override="false" description="mydescription" />
 </Context>
 
-Ò²¾ÍÊÇËµconf\Catalina\localhost\test.xmlÊÇ×Ô¶¯Éú³ÉµÄ£¬
-µ«ÊÇĞŞ¸ÄÈÎºÎÒ»·½¶¼²»»á×Ô¶¯¸üĞÂ¶Ô·½£¬
-×îºó½¨ÒéÊÇÊ¹ÓÃconf\Catalina\localhost\test.xmlµÄ·½Ê½£¬
-ÒòÎªtest\META-INF\context.xmlÒ»°ãÖ»ÓĞÔÚjarÎÄ¼şÖĞ£¬ÕâÖÖÇéĞÎÊÇÒ»µ«²¿Êğºó¾Í²»¿ÉÄÜÔÙĞŞ¸ÄÁË
+ä¹Ÿå°±æ˜¯è¯´conf\Catalina\localhost\test.xmlæ˜¯è‡ªåŠ¨ç”Ÿæˆçš„ï¼Œ
+ä½†æ˜¯ä¿®æ”¹ä»»ä½•ä¸€æ–¹éƒ½ä¸ä¼šè‡ªåŠ¨æ›´æ–°å¯¹æ–¹ï¼Œ
+æœ€åå»ºè®®æ˜¯ä½¿ç”¨conf\Catalina\localhost\test.xmlçš„æ–¹å¼ï¼Œ
+å› ä¸ºtest\META-INF\context.xmlä¸€èˆ¬åªæœ‰åœ¨jaræ–‡ä»¶ä¸­ï¼Œè¿™ç§æƒ…å½¢æ˜¯ä¸€ä½†éƒ¨ç½²åå°±ä¸å¯èƒ½å†ä¿®æ”¹äº†
 
 
 
 
 
 
-org.apache.catalina.connector.ResponseÊµÏÖÁËjavax.servlet.http.HttpServletResponse£¬
-µ÷ÓÃsetBufferSizeºóÔÙÓÃgetBufferSize()µÃµ½µÄÖµ¿ÉÒÔ²»Ò»Ñù£¬
-±ÈÈçresponse.setBufferSize(100)£¬response.getBufferSize()È´·µ»Ø8192£¬
-ÕâÀïÒòÎªResponseÄÚ²¿µÄOutputBufferÄ¬ÈÏÊÇ8192£¬Èç¹ûÄãÉèµÃ±È8192Ğ¡£¬ÄÇÃ´Êµ¼ÊÉÏ»áºöÂÔµôµÄ¡£
+org.apache.catalina.connector.Responseå®ç°äº†javax.servlet.http.HttpServletResponseï¼Œ
+è°ƒç”¨setBufferSizeåå†ç”¨getBufferSize()å¾—åˆ°çš„å€¼å¯ä»¥ä¸ä¸€æ ·ï¼Œ
+æ¯”å¦‚response.setBufferSize(100)ï¼Œresponse.getBufferSize()å´è¿”å›8192ï¼Œ
+è¿™é‡Œå› ä¸ºResponseå†…éƒ¨çš„OutputBufferé»˜è®¤æ˜¯8192ï¼Œå¦‚æœä½ è®¾å¾—æ¯”8192å°ï¼Œé‚£ä¹ˆå®é™…ä¸Šä¼šå¿½ç•¥æ‰çš„ã€‚
 

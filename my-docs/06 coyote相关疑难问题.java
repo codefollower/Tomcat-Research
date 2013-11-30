@@ -3,17 +3,17 @@ JIoEndpoint
 Http11ConnectionHandler
 RequestGroupInfo
 
-Õâ4¸öÀàÊÇÒ»Ò»¶ÔÓ¦µÄ£¬ÔËĞĞÊ±¶¼Ö»ÓĞÒ»¸öÊµÀı
+è¿™4ä¸ªç±»æ˜¯ä¸€ä¸€å¯¹åº”çš„ï¼Œè¿è¡Œæ—¶éƒ½åªæœ‰ä¸€ä¸ªå®ä¾‹
 
 Http11Processor
 Request
 Response
 RequestInfo
-ÊÇ¶àÀıµÄ£¬Õâ4¸öÊµµÄÊµÀı¸öÊıÒ»Ñù£¬Éú´æÆÚÒ²Ò»Ñù
+æ˜¯å¤šä¾‹çš„ï¼Œè¿™4ä¸ªå®çš„å®ä¾‹ä¸ªæ•°ä¸€æ ·ï¼Œç”Ÿå­˜æœŸä¹Ÿä¸€æ ·
 
 
-org.apache.coyote.http11.InternalOutputBuffer.endRequest()±»µ÷ÓÃÁËÁ½´Î£¬
-µÚ¶ş´ÎÊ²Ã´¶¼Ã»ÓĞÊä³ö
+org.apache.coyote.http11.InternalOutputBuffer.endRequest()è¢«è°ƒç”¨äº†ä¸¤æ¬¡ï¼Œ
+ç¬¬äºŒæ¬¡ä»€ä¹ˆéƒ½æ²¡æœ‰è¾“å‡º
 java.lang.Error
 	at org.apache.coyote.http11.InternalOutputBuffer.endRequest(InternalOutputBuffer.java:160)
 	at org.apache.coyote.http11.Http11Processor.actionInternal(Http11Processor.java:413)

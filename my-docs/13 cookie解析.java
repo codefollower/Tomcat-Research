@@ -1,8 +1,8 @@
-FWD_SLASH ÊÇforward slash ÕıĞ±Ïß(/)£¬forward´ú±íÏòÇ°
+FWD_SLASH æ˜¯forward slash æ­£æ–œçº¿(/)ï¼Œforwardä»£è¡¨å‘å‰
 
-backlash ·´Ğ±Ïß(\) back´ú±íÏòºó
+backlash åæ–œçº¿(\) backä»£è¡¨å‘å
 
-Ïà¹Ørfc:
+ç›¸å…³rfc:
 rfc2109: cookie v0
 rfc2965: cookie v1
 
@@ -34,7 +34,7 @@ cookie v1:
 	port            =  "$Port" [ "=" <"> value <"> ]
 
 
-//²¢²»ÊÇÒ»¸öServerCookie¶ÔÓ¦Ò»¸ö"Cookie: xxx"£¬¶øÊÇ¶ÔÓ¦ÆäÖĞµÄcookie-value
+//å¹¶ä¸æ˜¯ä¸€ä¸ªServerCookieå¯¹åº”ä¸€ä¸ª"Cookie: xxx"ï¼Œè€Œæ˜¯å¯¹åº”å…¶ä¸­çš„cookie-value
 	protected final void processCookieHeader(byte bytes[], int off, int len) {
 		if (len <= 0 || bytes == null) {
 			return;
@@ -54,9 +54,9 @@ cookie v1:
 			isSpecial = false;
 			isQuoted = false;
 
-			//1. Èç¹ûÊÇhttp·Ö¸ô·û²¢ÇÒÉèÖÃÁË¡°²»ÔÊĞíhttp·Ö¸ô·û³öÏÖÔÚvo°æ±¾µÄcookieÖĞ¡±£¬ÄÇÃ´Ìø¹ı´Ë×Ö·û
-			//2. Ìø¹ıvo·Ö¸ô·û
-			//3. Ìø¹ı¿Õ°×
+			//1. å¦‚æœæ˜¯httpåˆ†éš”ç¬¦å¹¶ä¸”è®¾ç½®äº†â€œä¸å…è®¸httpåˆ†éš”ç¬¦å‡ºç°åœ¨voç‰ˆæœ¬çš„cookieä¸­â€ï¼Œé‚£ä¹ˆè·³è¿‡æ­¤å­—ç¬¦
+			//2. è·³è¿‡voåˆ†éš”ç¬¦
+			//3. è·³è¿‡ç©ºç™½
 
 			// Skip whitespace and non-token characters (separators)
 			while (pos < end
@@ -69,7 +69,7 @@ cookie v1:
 				return;
 			}
 
-			//ÀıÈç$Version¡¢$PathµÈ
+			//ä¾‹å¦‚$Versionã€$Pathç­‰
 
 			// Detect Special cookies
 			if (bytes[pos] == '$') {
@@ -84,10 +84,10 @@ cookie v1:
 			    private static final int getTokenEndPosition(byte bytes[], int off, int end,
 						int version, boolean isName){
 					int pos = off;
-					//1. Èç¹ûµ±Ç°×Ö·û²»ÊÇhttp·Ö¸ô·û£¬ÄÇÃ´¼ÌĞøÍùÇ°
-					//2. Èç¹ûÊÇv0£¬²¢ÇÒÉèÖÃÁË¡°ÔÊĞíhttp·Ö¸ô·û³öÏÖÔÚvo°æ±¾µÄcookieÖĞ¡±£¬
-					//   ²¢ÇÒµ±Ç°×Ö·û²»ÊÇµÈºÅ£¬²¢ÇÒ²»ÊÇv0·Ö¸ô·û£¬ÄÇÃ´¼ÌĞøÍùÇ°
-					//3. Èç¹û²»ÊÇcookieÃû³Æ£¬²¢ÇÒµ±Ç°×Ö·ûÊÇµÈºÅ£¬²¢ÇÒÉèÖÃÁË¡°ÔÊĞíµÈºÅ³öÏÖÔÚcookieÖµÖĞ¡±£¬ÄÇÃ´¼ÌĞøÍùÇ°
+					//1. å¦‚æœå½“å‰å­—ç¬¦ä¸æ˜¯httpåˆ†éš”ç¬¦ï¼Œé‚£ä¹ˆç»§ç»­å¾€å‰
+					//2. å¦‚æœæ˜¯v0ï¼Œå¹¶ä¸”è®¾ç½®äº†â€œå…è®¸httpåˆ†éš”ç¬¦å‡ºç°åœ¨voç‰ˆæœ¬çš„cookieä¸­â€ï¼Œ
+					//   å¹¶ä¸”å½“å‰å­—ç¬¦ä¸æ˜¯ç­‰å·ï¼Œå¹¶ä¸”ä¸æ˜¯v0åˆ†éš”ç¬¦ï¼Œé‚£ä¹ˆç»§ç»­å¾€å‰
+					//3. å¦‚æœä¸æ˜¯cookieåç§°ï¼Œå¹¶ä¸”å½“å‰å­—ç¬¦æ˜¯ç­‰å·ï¼Œå¹¶ä¸”è®¾ç½®äº†â€œå…è®¸ç­‰å·å‡ºç°åœ¨cookieå€¼ä¸­â€ï¼Œé‚£ä¹ˆç»§ç»­å¾€å‰
 					while (pos < end &&
 							(!CookieSupport.isHttpSeparator((char)bytes[pos]) ||
 							 version == 0 &&
@@ -299,7 +299,7 @@ cookie v1:
 					if (isQuoted) {
 						// We know this is a byte value so this is safe
 						unescapeDoubleQuotes(sc.getValue().getByteChunk());
-							//È¥µô"\"ºÅ,Ò²¾ÍÊÇ°Ñ(\\")»»³É(")
+							//å»æ‰"\"å·,ä¹Ÿå°±æ˜¯æŠŠ(\\")æ¢æˆ(")
 						    private static void unescapeDoubleQuotes(ByteChunk bc) {
 
 								if (bc == null || bc.getLength() == 0 || bc.indexOf('"', 0) == -1) {

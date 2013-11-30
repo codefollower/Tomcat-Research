@@ -1,4 +1,4 @@
-AbstractProcessor中定义的变量
+AbstractProcessor涓畾涔夌殑鍙橀噺
 adapter
 endpoint
 
@@ -6,10 +6,10 @@ asyncStateMachine
 request
 response
 
-前两者是全局的，不会回收(recycle)，后三者会回收，
-其中request在回收InputBuffer时被间接回收，response在回收OutputBuffer时被间接回收
+鍓嶄袱鑰呮槸鍏ㄥ眬鐨勶紝涓嶄細鍥炴敹(recycle)锛屽悗涓夎�浼氬洖鏀讹紝
+鍏朵腑request鍦ㄥ洖鏀禝nputBuffer鏃惰闂存帴鍥炴敹锛宺esponse鍦ㄥ洖鏀禣utputBuffer鏃惰闂存帴鍥炴敹
 
-下面这6个变量在AbstractHttp11Processor中定义，每次都被回收
+涓嬮潰杩�涓彉閲忓湪AbstractHttp11Processor涓畾涔夛紝姣忔閮借鍥炴敹
 remoteAddr
 remoteHost
 remotePort
@@ -18,9 +18,9 @@ localAddr
 localName
 localPort
 
-以下变量都不会回收
+浠ヤ笅鍙橀噺閮戒笉浼氬洖鏀�
 ============================================================
-pluggableFilterIndex 固定是4，没有改变，也不会回收
+pluggableFilterIndex 鍥哄畾鏄�锛屾病鏈夋敼鍙橈紝涔熶笉浼氬洖鏀�
 
 
 
@@ -28,19 +28,19 @@ hostNameC
 
 
 
-以下三个变量在每个子类的process方法重置
+浠ヤ笅涓変釜鍙橀噺鍦ㄦ瘡涓瓙绫荤殑process鏂规硶閲嶇疆
 error
 keepAlive
-comet (BIO不支持comet，AJP协议都不支持comet)
+comet (BIO涓嶆敮鎸乧omet锛孉JP鍗忚閮戒笉鏀寔comet)
 
-以下4个变量在prepareRequest方法重置
+浠ヤ笅4涓彉閲忓湪prepareRequest鏂规硶閲嶇疆
 http11
 http09
 contentDelimitation
 expectation
 
 
-BIO/NIO/APR (11项, 放在AbstractHttp11Processor中)
+BIO/NIO/APR (11椤� 鏀惧湪AbstractHttp11Processor涓�
 ============================================================
 restrictedUserAgents
 maxKeepAliveRequests
@@ -54,37 +54,37 @@ socketBuffer
 maxSavePostSize
 server
 
-BIO还有
+BIO杩樻湁
 keepAliveTimeout
-(放在AbstractHttp11Processor中，
-这个变量没有必要，可以像NIO一样直接从endpoint.getKeepAliveTimeout()取得)
+(鏀惧湪AbstractHttp11Processor涓紝
+杩欎釜鍙橀噺娌℃湁蹇呰锛屽彲浠ュ儚NIO涓�牱鐩存帴浠巈ndpoint.getKeepAliveTimeout()鍙栧緱)
 
-disableKeepAlivePercentage (放在Http11Processor中)
+disableKeepAlivePercentage (鏀惧湪Http11Processor涓�
 
 
-APR还有 (放在Http11AprProcessor中)
+APR杩樻湁 (鏀惧湪Http11AprProcessor涓�
 clientCertProvider
 
-除了maxKeepAliveRequests外，
-其他10个变理在每次createProcessor时都是从AbstractHttp11Protocol取的
-maxKeepAliveRequests在AbstractHttp11Processor中默认值是-1，但是从AbstractEndpoint取时是100，
-所以如果没有配这11个变量的值，默认值都是AbstractEndpoint或AbstractHttp11Protocol中的值，
-并不是AbstractHttp11Processor中的值。
+闄や簡maxKeepAliveRequests澶栵紝
+鍏朵粬10涓彉鐞嗗湪姣忔createProcessor鏃堕兘鏄粠AbstractHttp11Protocol鍙栫殑
+maxKeepAliveRequests鍦ˋbstractHttp11Processor涓粯璁ゅ�鏄�1锛屼絾鏄粠AbstractEndpoint鍙栨椂鏄�00锛�
+鎵�互濡傛灉娌℃湁閰嶈繖11涓彉閲忕殑鍊硷紝榛樿鍊奸兘鏄疉bstractEndpoint鎴朅bstractHttp11Protocol涓殑鍊硷紝
+骞朵笉鏄疉bstractHttp11Processor涓殑鍊笺�
 
-//排序后的变量
+//鎺掑簭鍚庣殑鍙橀噺
 compressableMimeTypes = "text/html,text/xml,text/plain"
 compressionLevel== "off" compression("on"=1, "force"=2, "off"=0, "2048"=1(compressionMinSize=2048))
 compressionMinSize = 2048
-connectionUploadTimeout = 300000 (5 * 60 * 1000) 相当于上传超时时间是5分钟
-disableUploadTimeout = true 禁用上传超时时间(这时用socketTimeout)
-maxKeepAliveRequests = 100 (从AbstractEndpoint中取)
+connectionUploadTimeout = 300000 (5 * 60 * 1000) 鐩稿綋浜庝笂浼犺秴鏃舵椂闂存槸5鍒嗛挓
+disableUploadTimeout = true 绂佺敤涓婁紶瓒呮椂鏃堕棿(杩欐椂鐢╯ocketTimeout)
+maxKeepAliveRequests = 100 (浠嶢bstractEndpoint涓彇)
 maxSavePostSize = 4 * 1024 (4k)
 noCompressionUserAgents = null
 restrictedUserAgents = null
 server = null
 socketBuffer = 9000
 
-在AbstractHttp11Processor中有三个变量值不同，其他都相同
+鍦ˋbstractHttp11Processor涓湁涓変釜鍙橀噺鍊间笉鍚岋紝鍏朵粬閮界浉鍚�
 disableUploadTimeout = false
 maxKeepAliveRequests = -1
 socketBuffer = -1

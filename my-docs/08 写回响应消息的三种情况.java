@@ -1,19 +1,19 @@
-µÚÒ»ÖÖ:
-ÊÖ¶¯µ÷ÓÃresponse.getWriter().flush()»òResponse.flushBuffer()·½·¨
+ç¬¬ä¸€ç§:
+æ‰‹åŠ¨è°ƒç”¨response.getWriter().flush()æˆ–Response.flushBuffer()æ–¹æ³•
 response.getWriter().write("aaa");
 response.getWriter().flush();
-»òresponse.flushBuffer();
+æˆ–response.flushBuffer();
 
-response.getWriter().flush()Óëresponse.flushBuffer()µÄ²î±ğÊÇ
-response.flushBuffer()»á°ÑappCommittedÉèÎªtrue,
-²»¹ıÁ½ÖÖÇé¿öÏÂresponse.isCommitted()¶¼»á·µ»Øtrue¡£
+response.getWriter().flush()ä¸response.flushBuffer()çš„å·®åˆ«æ˜¯
+response.flushBuffer()ä¼šæŠŠappCommittedè®¾ä¸ºtrue,
+ä¸è¿‡ä¸¤ç§æƒ…å†µä¸‹response.isCommitted()éƒ½ä¼šè¿”å›trueã€‚
 
-µÚ¶şÖÖ:
-org.apache.catalina.connector.OutputBufferÄ¬ÈÏÊÇ8k£¬
-Èç¹ûĞ´ÂúÁË£¬»á×Ô¶¯Ğ´»ØÏìÓ¦ÏûÏ¢¡£
+ç¬¬äºŒç§:
+org.apache.catalina.connector.OutputBufferé»˜è®¤æ˜¯8kï¼Œ
+å¦‚æœå†™æ»¡äº†ï¼Œä¼šè‡ªåŠ¨å†™å›å“åº”æ¶ˆæ¯ã€‚
 
-µÚÈıÖÖ:
-Ò²¾ÍÊÇÕı³£Çé¿ö£¬ÔÚÖ´ĞĞÍêservletºó£¬
-ÈİÆ÷»áµ÷ÓÃresponse.finishResponse£¬
-response.finishResponseµ÷ÓÃOutputBuffer.close£¬
-OutputBuffer.close»á´¥·¢Ò»ÏµÁĞÊÂÇé£¬×îºóĞ´»ØÏìÓ¦ÏûÏ¢¡£
+ç¬¬ä¸‰ç§:
+ä¹Ÿå°±æ˜¯æ­£å¸¸æƒ…å†µï¼Œåœ¨æ‰§è¡Œå®Œservletåï¼Œ
+å®¹å™¨ä¼šè°ƒç”¨response.finishResponseï¼Œ
+response.finishResponseè°ƒç”¨OutputBuffer.closeï¼Œ
+OutputBuffer.closeä¼šè§¦å‘ä¸€ç³»åˆ—äº‹æƒ…ï¼Œæœ€åå†™å›å“åº”æ¶ˆæ¯ã€‚

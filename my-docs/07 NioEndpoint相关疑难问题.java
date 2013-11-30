@@ -1,8 +1,8 @@
-org.apache.tomcat.util.net.NioEndpoint.Poller类的字段
+org.apache.tomcat.util.net.NioEndpoint.Poller绫荤殑瀛楁
 
-ConcurrentLinkedQueue<Runnable> events其实都是PollerEvent类型
-addEvent方法可以加入Runnable，但是这个方法目前没在别处调用，
-都是在NioEndpoint中调用，调用addEvent方法时都是用PollerEvent类型做为参数
+ConcurrentLinkedQueue<Runnable> events鍏跺疄閮芥槸PollerEvent绫诲瀷
+addEvent鏂规硶鍙互鍔犲叆Runnable锛屼絾鏄繖涓柟娉曠洰鍓嶆病鍦ㄥ埆澶勮皟鐢紝
+閮芥槸鍦∟ioEndpoint涓皟鐢紝璋冪敤addEvent鏂规硶鏃堕兘鏄敤PollerEvent绫诲瀷鍋氫负鍙傛暟
 
 
 

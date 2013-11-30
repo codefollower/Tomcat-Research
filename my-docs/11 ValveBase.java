@@ -4,7 +4,7 @@
         
         Container container = getContainer();
 
-		//²»°üº¬EngineµÄÃû³Æ
+		//ä¸åŒ…å«Engineçš„åç§°
         name.append(MBeanUtils.getContainerKeyProperties(container));
         
         int seq = 0;
@@ -22,7 +22,7 @@
                     break;
                 }
 
-				//ÔÚserver.xmlÖĞÏñÕâÑù¶à¼Ó¼¸¸öÖØ¸´µÄValve¾Í»á³öÏÖÕâÖÖÇé¿ö:
+				//åœ¨server.xmlä¸­åƒè¿™æ ·å¤šåŠ å‡ ä¸ªé‡å¤çš„Valveå°±ä¼šå‡ºç°è¿™ç§æƒ…å†µ:
 				/*
 				<Context ...>
 					<Valve className="MyValve" />
@@ -60,7 +60,7 @@
     }
 
 
-ÉèÖÃ
+è®¾ç½®
 org.apache.catalina.connector.Request.setAsyncSupported
-ÏÈ±éÀúStandardEngineµÄPipelineÖĞµÄÃ¿¸öValve£¬ËùÓĞValve¶¼Ö§³ÖÒì²½Ê±Õâ¸öÇëÇó²ÅÖ§³ÖÒì²½£¬
-È»ºó×ªµ½StandardHostµÄPipeline ==> StandardContextµÄPipeline ==> StandardWrapperµÄPipeline
+å…ˆéå†StandardEngineçš„Pipelineä¸­çš„æ¯ä¸ªValveï¼Œæ‰€æœ‰Valveéƒ½æ”¯æŒå¼‚æ­¥æ—¶è¿™ä¸ªè¯·æ±‚æ‰æ”¯æŒå¼‚æ­¥ï¼Œ
+ç„¶åè½¬åˆ°StandardHostçš„Pipeline ==> StandardContextçš„Pipeline ==> StandardWrapperçš„Pipeline

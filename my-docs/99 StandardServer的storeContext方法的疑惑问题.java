@@ -1,11 +1,11 @@
-org.apache.catalina.core.StandardServerµÄÈçÏÂÁ½¸ö·½·¨ÊÇ²»¿ÉÓÃµÄ:
+org.apache.catalina.core.StandardServerçš„å¦‚ä¸‹ä¸¤ä¸ªæ–¹æ³•æ˜¯ä¸å¯ç”¨çš„:
 storeConfig
 storeContext
-Õâ¸öÒªÓÃµ½tomcat5.5ÖĞµÄÒ»¸ö·Ö¿ªµÄÄ£¿é:storeconfig
-µ«ÊÇÔÚTomcat7ÖĞÄ¿Ç°Ã»ÓĞ¡£
+è¿™ä¸ªè¦ç”¨åˆ°tomcat5.5ä¸­çš„ä¸€ä¸ªåˆ†å¼€çš„æ¨¡å—:storeconfig
+ä½†æ˜¯åœ¨Tomcat7ä¸­ç›®å‰æ²¡æœ‰ã€‚
 
 
-ÆäÖĞµÄ:
+å…¶ä¸­çš„:
     public synchronized void storeContext(Context context) throws Exception {
         
         ObjectName sname = null;    
@@ -23,7 +23,7 @@ storeContext
         }
  
     }
-"java.lang.String"ÊÇÓÃÀ´Ö¸Ã÷µ±ÓÃjconsoleÀ´²é¿´Ê±£¬ÊäÈëÒ»¸öÀàÃû×Ö·û´®£¬È»ºóÈÃMbeanµÄclassloaderÈ¥¼ÓÔØËû£¬
-ÕâÀï²¢²»ÊÇËµstore·½·¨µÄ²ÎÊıÊÇstringÀàĞÍ£¬¿´ÆğÀ´µÄÈ··Ç³£ÃÔ»ó£¬new Object[] {context}ÊÇorg.apache.catalina.ContextµÄ¶ÔÏñ£¬
-°´ÀíËµnew String [] { "java.lang.String"})Ó¦¸Ä³Énew String [] { "org.apache.catalina.Context"})²Å¶Ô£¬
-Êµ¼ÊÉÏ²¢²»ÊÇÕâÑù.
+"java.lang.String"æ˜¯ç”¨æ¥æŒ‡æ˜å½“ç”¨jconsoleæ¥æŸ¥çœ‹æ—¶ï¼Œè¾“å…¥ä¸€ä¸ªç±»åå­—ç¬¦ä¸²ï¼Œç„¶åè®©Mbeançš„classloaderå»åŠ è½½ä»–ï¼Œ
+è¿™é‡Œå¹¶ä¸æ˜¯è¯´storeæ–¹æ³•çš„å‚æ•°æ˜¯stringç±»å‹ï¼Œçœ‹èµ·æ¥çš„ç¡®éå¸¸è¿·æƒ‘ï¼Œnew Object[] {context}æ˜¯org.apache.catalina.Contextçš„å¯¹åƒï¼Œ
+æŒ‰ç†è¯´new String [] { "java.lang.String"})åº”æ”¹æˆnew String [] { "org.apache.catalina.Context"})æ‰å¯¹ï¼Œ
+å®é™…ä¸Šå¹¶ä¸æ˜¯è¿™æ ·.

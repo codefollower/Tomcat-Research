@@ -1,25 +1,25 @@
-1. Ä¬ÈÏÓÃStandardManager
-°ÑsessionÊı¾İ±£´æµ½work\Catalina\localhost\examples\SESSIONS.ser
-SESSIONS.serÖĞ´æ·ÅÁË¶à¸ösessionµÄÊı¾İ¡£
+1. é»˜è®¤ç”¨StandardManager
+æŠŠsessionæ•°æ®ä¿å­˜åˆ°work\Catalina\localhost\examples\SESSIONS.ser
+SESSIONS.serä¸­å­˜æ”¾äº†å¤šä¸ªsessionçš„æ•°æ®ã€‚
 
-Æô¶¯TomcatÊ±£¬µ÷ÓÃorg.apache.catalina.session.StandardManager.load()£¬
-°ÑSESSIONS.serÖĞµÄÊı¾İ·´ĞòÁĞ»¯»ØÀ´£¬Éú³É¶à¸öStandardSessionÊµÀı¡£
-Í£Ö¹TomcatÊ±£¬µ÷ÓÃorg.apache.catalina.session.StandardManager.unload()°ÑËùÓĞsessionĞòÁĞ»¯±£´æµ½SESSIONS.ser¡£
-×¢ÒâÔÚeclipseÖĞ°´ºìÉ«·½¿éµÄTerminate°´Å¥ÊÇÎŞ·¨´¥·¢sessionµÄ±£´æµÄ£¬±ØĞèÔËĞĞtomcat\bin\shutdown.bat²Å¿ÉÒÔ¡£
+å¯åŠ¨Tomcatæ—¶ï¼Œè°ƒç”¨org.apache.catalina.session.StandardManager.load()ï¼Œ
+æŠŠSESSIONS.serä¸­çš„æ•°æ®ååºåˆ—åŒ–å›æ¥ï¼Œç”Ÿæˆå¤šä¸ªStandardSessionå®ä¾‹ã€‚
+åœæ­¢Tomcatæ—¶ï¼Œè°ƒç”¨org.apache.catalina.session.StandardManager.unload()æŠŠæ‰€æœ‰sessionåºåˆ—åŒ–ä¿å­˜åˆ°SESSIONS.serã€‚
+æ³¨æ„åœ¨eclipseä¸­æŒ‰çº¢è‰²æ–¹å—çš„TerminateæŒ‰é’®æ˜¯æ— æ³•è§¦å‘sessionçš„ä¿å­˜çš„ï¼Œå¿…éœ€è¿è¡Œtomcat\bin\shutdown.batæ‰å¯ä»¥ã€‚
 
 2. PersistentManager
-¿ÉÒÔ°ÑsessionÊı¾İ±£´æµ½ÎÄ¼şÖĞ(Ò²¾ÍÊÇFileStoreµÄ·½Ê½)£¬Ò»¸ösession¶ÔÓ¦Ò»¸öÎÄ¼ş£¬ÎÄ¼şÃûÊÇsessionId + ".session"£¬
-Ò²¿ÉÒÔ°ÑsessionÊı¾İ±£´æµ½Êı¾İ¿âÖĞ(Ò²¾ÍÊÇJDBCStoreµÄ·½Ê½)¡£
+å¯ä»¥æŠŠsessionæ•°æ®ä¿å­˜åˆ°æ–‡ä»¶ä¸­(ä¹Ÿå°±æ˜¯FileStoreçš„æ–¹å¼)ï¼Œä¸€ä¸ªsessionå¯¹åº”ä¸€ä¸ªæ–‡ä»¶ï¼Œæ–‡ä»¶åæ˜¯sessionId + ".session"ï¼Œ
+ä¹Ÿå¯ä»¥æŠŠsessionæ•°æ®ä¿å­˜åˆ°æ•°æ®åº“ä¸­(ä¹Ÿå°±æ˜¯JDBCStoreçš„æ–¹å¼)ã€‚
 
-StandardManagerÓëPersistentManagerµÄ²î±ğÊÇ:
-sessionµÄ·´ĞòÁĞ»¯²¢²»ÊÇÔÚÆô¶¯TomcatÊ±×öµÄ£¬
-Ò²¾ÍÊÇËµorg.apache.catalina.session.PersistentManagerBase.load()Õâ¸ö·½·¨ÆäÊµÊÇÃ»ÓĞÓÃµÄ£¬
-".session"ÎÄ¼şµÄ¶ÁÈ¡»áÑÓ³Ùµ½ÕæÕı·ÃÎÊÕâ¸ösessionÊ±²ÅÈ¥¶Á£¬Ò²¾ÍÊÇµ÷ÓÃrequest.getSession·½·¨Ê±£¬
-Èç¹ûÉÏÒ»´Î½¨Á¢ÁËÒ»¸ösocket£¬ÄÇÃ´tomcat»áÍ¨¹ıcookieµÄ·½Ê½°ÑsessionId·¢¸øä¯ÀÀÆ÷£¬
-È»ºóä¯ÀÀÆ÷ÏÂÒ»´ÎÇëÇóÊ±Í¬ÑùÍ¨¹ıcookie°ÑsessionId´ø»ØÀ´£¬Èç:
+StandardManagerä¸PersistentManagerçš„å·®åˆ«æ˜¯:
+sessionçš„ååºåˆ—åŒ–å¹¶ä¸æ˜¯åœ¨å¯åŠ¨Tomcatæ—¶åšçš„ï¼Œ
+ä¹Ÿå°±æ˜¯è¯´org.apache.catalina.session.PersistentManagerBase.load()è¿™ä¸ªæ–¹æ³•å…¶å®æ˜¯æ²¡æœ‰ç”¨çš„ï¼Œ
+".session"æ–‡ä»¶çš„è¯»å–ä¼šå»¶è¿Ÿåˆ°çœŸæ­£è®¿é—®è¿™ä¸ªsessionæ—¶æ‰å»è¯»ï¼Œä¹Ÿå°±æ˜¯è°ƒç”¨request.getSessionæ–¹æ³•æ—¶ï¼Œ
+å¦‚æœä¸Šä¸€æ¬¡å»ºç«‹äº†ä¸€ä¸ªsocketï¼Œé‚£ä¹ˆtomcatä¼šé€šè¿‡cookieçš„æ–¹å¼æŠŠsessionIdå‘ç»™æµè§ˆå™¨ï¼Œ
+ç„¶åæµè§ˆå™¨ä¸‹ä¸€æ¬¡è¯·æ±‚æ—¶åŒæ ·é€šè¿‡cookieæŠŠsessionIdå¸¦å›æ¥ï¼Œå¦‚:
 Cookie: JSESSIONID=3EE8725ABF1B7960363C28BEBBA86D63
-×îºó¸ù¾İÕâ¸öJSESSIONID¾Í¿ÉÒÔ²é¿´Ïà¹ØµÄ".session"ÎÄ¼şÁË¡£
+æœ€åæ ¹æ®è¿™ä¸ªJSESSIONIDå°±å¯ä»¥æŸ¥çœ‹ç›¸å…³çš„".session"æ–‡ä»¶äº†ã€‚
 
-StandardManagerÓëPersistentManager¶¼ÊÇÔÚtomcat¹Ø±ÕÊ±°Ñsession±£´æÆğÀ´¡£
+StandardManagerä¸PersistentManageréƒ½æ˜¯åœ¨tomcatå…³é—­æ—¶æŠŠsessionä¿å­˜èµ·æ¥ã€‚
 
 

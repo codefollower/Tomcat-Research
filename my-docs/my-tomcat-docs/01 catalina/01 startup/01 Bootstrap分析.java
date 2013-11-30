@@ -6,10 +6,10 @@ main(String[])
 			=> createClassLoader(String, ClassLoader)
 
 	=> setAwait(boolean)
-		=> 反射调用 org.apache.catalina.startup.Catalina.setAwait(boolean)
+		=> 鍙嶅皠璋冪敤 org.apache.catalina.startup.Catalina.setAwait(boolean)
 
 	=> load(String[])
-		=> 反射调用 org.apache.catalina.startup.Catalina.load(String[])
+		=> 鍙嶅皠璋冪敤 org.apache.catalina.startup.Catalina.load(String[])
 			=> arguments(String[])
 			=> load()
 				=> initDirs()
@@ -20,6 +20,6 @@ main(String[])
 				=> StandardServer.init()
 
 	=> start()
-		=> 反射调用 org.apache.catalina.startup.Catalina.start()
+		=> 鍙嶅皠璋冪敤 org.apache.catalina.startup.Catalina.start()
 		=> StandardServer.start()
 

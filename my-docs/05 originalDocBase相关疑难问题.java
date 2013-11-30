@@ -1,20 +1,20 @@
-originalDocBaseÓëantiResourceLocking="true"Ïà¹Ø£¬
+originalDocBaseä¸antiResourceLocking="true"ç›¸å…³ï¼Œ
 
-µ±org.apache.catalina.startup.ContextConfig.lifecycleEvent(LifecycleEvent event)´¦ÀíÍê
-BEFORE_START_EVENT¡¢CONFIGURE_START_EVENTÊÂ¼şºó
-µ±antiResourceLocking="true"Ê±£¬»á°ÑÓ¦ÓÃcopyÒ»·İµ½tempÄ¿Â¼ÖĞ£¬·ÀÖ¹Ô­À´µÄ±»Ëö×¡ÁË£¬
-ÕâÑùcontext.docBase¸ÄÎªtempÄ¿Â¼ÖĞµÄÄÇ¸öĞÂÄ¿Â¼£¬
-¶øoriginalDocBase¾ÍÊÇ×î³õµÄÄ¿Â¼£¬
+å½“org.apache.catalina.startup.ContextConfig.lifecycleEvent(LifecycleEvent event)å¤„ç†å®Œ
+BEFORE_START_EVENTã€CONFIGURE_START_EVENTäº‹ä»¶å
+å½“antiResourceLocking="true"æ—¶ï¼Œä¼šæŠŠåº”ç”¨copyä¸€ä»½åˆ°tempç›®å½•ä¸­ï¼Œé˜²æ­¢åŸæ¥çš„è¢«çä½äº†ï¼Œ
+è¿™æ ·context.docBaseæ”¹ä¸ºtempç›®å½•ä¸­çš„é‚£ä¸ªæ–°ç›®å½•ï¼Œ
+è€ŒoriginalDocBaseå°±æ˜¯æœ€åˆçš„ç›®å½•ï¼Œ
 
-µ±org.apache.catalina.startup.ContextConfig.lifecycleEvent(LifecycleEvent event)
-´¦ÀíÍêAFTER_START_EVENTºó£¬
+å½“org.apache.catalina.startup.ContextConfig.lifecycleEvent(LifecycleEvent event)
+å¤„ç†å®ŒAFTER_START_EVENTåï¼Œ
 
-originalDocBaseÊÇtempÄ¿Â¼ÖĞµÄÄÇ¸öĞÂÄ¿Â¼
-context.docBase¸ÄÎª×î³õµÄÄ¿Â¼
+originalDocBaseæ˜¯tempç›®å½•ä¸­çš„é‚£ä¸ªæ–°ç›®å½•
+context.docBaseæ”¹ä¸ºæœ€åˆçš„ç›®å½•
 
-µ±org.apache.catalina.startup.ContextConfig.lifecycleEvent(LifecycleEvent event)
-´¦Àíµ½CONFIGURE_STOP_EVENTÊ±£¬ÔÙ°ÑÁ½Õßµ÷¹ıÀ´£¬
-context.docBase¸ÄÎªtempÄ¿Â¼ÖĞµÄÄÇ¸öĞÂÄ¿Â¼£¬
-originalDocBaseÊÇ×î³õµÄÄ¿Â¼£¬
-×îºóµ÷ÓÃorg.apache.catalina.startup.ContextConfig.configureStop()£¬
-È¡³öcontext.docBaseµÄÖµ£¬ÒòÎªÊÇtempÄ¿Â¼ÖĞµÄÄÇ¸öĞÂÄ¿Â¼£¬ËùÒÔÒª°ÑËüÉ¾ÁË¡£
+å½“org.apache.catalina.startup.ContextConfig.lifecycleEvent(LifecycleEvent event)
+å¤„ç†åˆ°CONFIGURE_STOP_EVENTæ—¶ï¼Œå†æŠŠä¸¤è€…è°ƒè¿‡æ¥ï¼Œ
+context.docBaseæ”¹ä¸ºtempç›®å½•ä¸­çš„é‚£ä¸ªæ–°ç›®å½•ï¼Œ
+originalDocBaseæ˜¯æœ€åˆçš„ç›®å½•ï¼Œ
+æœ€åè°ƒç”¨org.apache.catalina.startup.ContextConfig.configureStop()ï¼Œ
+å–å‡ºcontext.docBaseçš„å€¼ï¼Œå› ä¸ºæ˜¯tempç›®å½•ä¸­çš„é‚£ä¸ªæ–°ç›®å½•ï¼Œæ‰€ä»¥è¦æŠŠå®ƒåˆ äº†ã€‚

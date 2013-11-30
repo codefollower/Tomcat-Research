@@ -1,47 +1,47 @@
-½¨¸öÄ¿Â¼:
+å»ºä¸ªç›®å½•:
 E:\Tomcat7-SVN\svn\tomcat_2010-03-09
 
-ÇĞ»»µ½´ËÄ¿Â¼:
+åˆ‡æ¢åˆ°æ­¤ç›®å½•:
 cd E:\Tomcat7-SVN\svn\tomcat_2010-03-09
 
-ÏÂÔØÔ´ÎÄ¼ş:
+ä¸‹è½½æºæ–‡ä»¶:
 svn checkout http://svn.apache.org/repos/asf/tomcat/trunk tomcat
 
 svn export http://svn.apache.org/repos/asf/tomcat/trunk tomcat
 
-´ò¿ªÎÄ¼şE:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\build.properties.default
+æ‰“å¼€æ–‡ä»¶E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\build.properties.default
 
-°Ñbase.path=/usr/share/java
-¸Ä³Ébase.path=E:/Tomcat7-SVN/export/tomcat_2010-12-10/tomcat/repository
+æŠŠbase.path=/usr/share/java
+æ”¹æˆbase.path=E:/Tomcat7-SVN/export/tomcat_2010-12-10/tomcat/repository
 
-È»ºó
+ç„¶å
 cd tomcat
 
-È»ºóÊäÈëant
+ç„¶åè¾“å…¥ant
 
 F:\apache-ant-1.7.1\bin\ant
 
-µÈ5-6·ÖÖÓºó±àÒëÍê³É(ÆäÖĞ»áÏÂÔØÒ»Ğ©jarÎÄ¼şµ½E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
+ç­‰5-6åˆ†é’Ÿåç¼–è¯‘å®Œæˆ(å…¶ä¸­ä¼šä¸‹è½½ä¸€äº›jaræ–‡ä»¶åˆ°E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
 BUILD SUCCESSFUL
 Total time: 5 minutes 16 seconds
 
-ĞŞ¸ÄE:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\conf\server.xml
-½«
+ä¿®æ”¹E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\conf\server.xml
+å°†
 <Connector port="8080" protocol="HTTP/1.1" 
                connectionTimeout="20000" 
                redirectPort="8443" />
 
-¸Ä³É
+æ”¹æˆ
 <Connector port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol" 
                connectionTimeout="20000" 
                redirectPort="8443" />
 
-ÔËĞĞ:
+è¿è¡Œ:
 E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\bin>startup
 
 
 2010-3-9 19:49:37 org.apache.catalina.core.AprLifecycleListener init
-ĞÅÏ¢: The APR based Apache Tomcat Native library which allows optimal performanc
+ä¿¡æ¯: The APR based Apache Tomcat Native library which allows optimal performanc
 e in production environments was not found on the java.library.path: D:\JavaSE\b
 in;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\JavaCC\javacc-5.0
 \bin;D:\Python26\Lib\site-packages\django\bin;D:\Python26;D:\JavaSE\bin;D:\JavaF
@@ -52,33 +52,33 @@ zhh\product\11.1.0\db_1\bin;D:\Svn;D:\Program Files\MySQL\MySQL Server 5.1\bin;D
 s\Common Files\Thunder Network\KanKan\Codecs;C:\Program Files\Microsoft SQL Serv
 er\80\Tools\BINN
 2010-3-9 19:49:37 org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
-ĞÅÏ¢: Using a shared selector for servlet write/read
+ä¿¡æ¯: Using a shared selector for servlet write/read
 2010-3-9 19:49:37 org.apache.coyote.http11.Http11NioProtocol init
-ĞÅÏ¢: Initializing Coyote HTTP/1.1 on http-8080
+ä¿¡æ¯: Initializing Coyote HTTP/1.1 on http-8080
 2010-3-9 19:49:37 org.apache.coyote.ajp.AjpProtocol init
-ĞÅÏ¢: Initializing Coyote AJP/1.3 on ajp-8009
+ä¿¡æ¯: Initializing Coyote AJP/1.3 on ajp-8009
 2010-3-9 19:49:37 org.apache.catalina.startup.Catalina load
-ĞÅÏ¢: Initialization processed in 771 ms
+ä¿¡æ¯: Initialization processed in 771 ms
 2010-3-9 19:49:37 org.apache.catalina.core.StandardService startInternal
-ĞÅÏ¢: Starting service Catalina
+ä¿¡æ¯: Starting service Catalina
 2010-3-9 19:49:37 org.apache.catalina.core.StandardEngine startInternal
-ĞÅÏ¢: Starting Servlet Engine: Apache Tomcat/7.0.0-dev
+ä¿¡æ¯: Starting Servlet Engine: Apache Tomcat/7.0.0-dev
 2010-3-9 19:49:37 org.apache.catalina.startup.HostConfig deployDescriptor
-ĞÅÏ¢: Deploying configuration descriptor host-manager.xml
+ä¿¡æ¯: Deploying configuration descriptor host-manager.xml
 2010-3-9 19:49:38 org.apache.catalina.startup.HostConfig deployDescriptor
-ĞÅÏ¢: Deploying configuration descriptor manager.xml
+ä¿¡æ¯: Deploying configuration descriptor manager.xml
 2010-3-9 19:49:38 org.apache.catalina.startup.HostConfig deployDirectory
-ĞÅÏ¢: Deploying web application directory docs
+ä¿¡æ¯: Deploying web application directory docs
 2010-3-9 19:49:38 org.apache.catalina.startup.HostConfig deployDirectory
-ĞÅÏ¢: Deploying web application directory examples
+ä¿¡æ¯: Deploying web application directory examples
 2010-3-9 19:49:38 org.apache.catalina.startup.HostConfig deployDirectory
-ĞÅÏ¢: Deploying web application directory ROOT
+ä¿¡æ¯: Deploying web application directory ROOT
 2010-3-9 19:49:38 org.apache.coyote.http11.Http11NioProtocol start
-ĞÅÏ¢: Starting Coyote HTTP/1.1 on http-8080
+ä¿¡æ¯: Starting Coyote HTTP/1.1 on http-8080
 2010-3-9 19:49:38 org.apache.coyote.ajp.AjpProtocol start
-ĞÅÏ¢: Starting Coyote AJP/1.3 on ajp-8009
+ä¿¡æ¯: Starting Coyote AJP/1.3 on ajp-8009
 2010-3-9 19:49:38 org.apache.catalina.startup.Catalina startInternal
-ĞÅÏ¢: Server startup in 864 ms
+ä¿¡æ¯: Server startup in 864 ms
 
 
 
@@ -86,94 +86,94 @@ er\80\Tools\BINN
 
 
 
-Tomcat7-SVN³¢ÏÊ
+Tomcat7-SVNå°é²œ
 
-1.½¨¸öĞÂÄ¿Â¼:
+1.å»ºä¸ªæ–°ç›®å½•:
 E:\Tomcat7-SVN\svn\tomcat_2010-03-09
 
-2.ÇĞ»»µ½´ËÄ¿Â¼:
+2.åˆ‡æ¢åˆ°æ­¤ç›®å½•:
 cd E:\Tomcat7-SVN\svn\tomcat_2010-03-09
 
-3.ÓÃsvnÏÂÔØÔ´ÎÄ¼ş:
+3.ç”¨svnä¸‹è½½æºæ–‡ä»¶:
 svn checkout http://svn.apache.org/repos/asf/tomcat/trunk tomcat
 
 4.
-´ò¿ªÎÄ¼ş E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\build.properties.default
-°Ñbase.path=/usr/share/java
-¸Ä³Ébase.path=E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
+æ‰“å¼€æ–‡ä»¶ E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\build.properties.default
+æŠŠbase.path=/usr/share/java
+æ”¹æˆbase.path=E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
 
-5.ÓÃant±àÒëTomcat7-SVN
-ÏÈ:
+5.ç”¨antç¼–è¯‘Tomcat7-SVN
+å…ˆ:
 cd tomcat
 
-È»ºóÊäÈë:
+ç„¶åè¾“å…¥:
 ant
 
-µÈ5-6·ÖÖÓºó±àÒëÍê³É(Æä¼ä»áÏÂÔØÒ»Ğ©jarÎÄ¼şµ½E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
+ç­‰5-6åˆ†é’Ÿåç¼–è¯‘å®Œæˆ(å…¶é—´ä¼šä¸‹è½½ä¸€äº›jaræ–‡ä»¶åˆ°E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
 
 BUILD SUCCESSFUL
 Total time: 5 minutes 16 seconds
 
 
 6.
-ĞŞ¸ÄE:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\conf\server.xml
-½«
+ä¿®æ”¹E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\conf\server.xml
+å°†
 <Connector port="8080" protocol="HTTP/1.1" 
                connectionTimeout="20000" 
                redirectPort="8443" />
 
-¸Ä³É
+æ”¹æˆ
 <Connector port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol" 
                connectionTimeout="20000" 
                redirectPort="8443" />
 
-7.ÔËĞĞ:
+7.è¿è¡Œ:
 E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\bin>startup
 
-Êä³öĞÅÏ¢Æ¬¶Î:
+è¾“å‡ºä¿¡æ¯ç‰‡æ®µ:
 ---------------------
 2010-3-9 19:49:38 org.apache.coyote.http11.Http11NioProtocol start
-ĞÅÏ¢: Starting Coyote HTTP/1.1 on http-8080
+ä¿¡æ¯: Starting Coyote HTTP/1.1 on http-8080
 2010-3-9 19:49:38 org.apache.coyote.ajp.AjpProtocol start
-ĞÅÏ¢: Starting Coyote AJP/1.3 on ajp-8009
+ä¿¡æ¯: Starting Coyote AJP/1.3 on ajp-8009
 2010-3-9 19:49:38 org.apache.catalina.startup.Catalina startInternal
-ĞÅÏ¢: Server startup in 864 ms
+ä¿¡æ¯: Server startup in 864 ms
 
 
-8.²âÊÔÒì²½API
-Ô´ÎÄ¼şÔÚ
+8.æµ‹è¯•å¼‚æ­¥API
+æºæ–‡ä»¶åœ¨
 E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\webapps\examples\jsp\async
 E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\webapps\examples\WEB-INF\classes\async
 
-ÔÚä¯ÀÀÆ÷ÖĞÊäÈë£º
+åœ¨æµè§ˆå™¨ä¸­è¾“å…¥ï¼š
 http://localhost:8080/examples/async/async0
 
-ÏÔÊ¾½á¹û:
+æ˜¾ç¤ºç»“æœ:
 Async dispatch worked:+1268136726125
 
-ÊäÈë£º
+è¾“å…¥ï¼š
 http://localhost:8080/examples/async/async1
 
-ÏÔÊ¾½á¹û:
+æ˜¾ç¤ºç»“æœ:
 Output from async1.jsp Type is ASYNC Completed async request at 2010-03-09
 
 
-ÊäÈë£º
+è¾“å…¥ï¼š
 http://localhost:8080/examples/async/async2
 
-ÏÔÊ¾½á¹û:
+æ˜¾ç¤ºç»“æœ:
 Output from background thread. Time:1268136913468
 
-ÊäÈë£º
+è¾“å…¥ï¼š
 http://localhost:8080/examples/async/async3
 
-ÏÔÊ¾½á¹û:
+æ˜¾ç¤ºç»“æœ:
 Output from async3.jsp Type is ASYNC Completed async 3 request at 2010-03-09
 
-ÊäÈë£º
+è¾“å…¥ï¼š
 http://localhost:8080/examples/async/stockticker
 
-ÏÔÊ¾½á¹û:
+æ˜¾ç¤ºç»“æœ:
 STOCK#GOOG#435.86#0.43#1
 STOCK#ASF#1016.22#0.67#2
 STOCK#YHOO#27.83#-0.05#3

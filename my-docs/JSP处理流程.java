@@ -1,69 +1,69 @@
 1)
-Ô¤³õÊ¼»¯:
+é¢„åˆå§‹åŒ–:
 org.apache.jasper.compiler.JspRuntimeContext
 org.apache.jasper.runtime.JspFactoryImpl
 
 
-TomcatÔÚ³õÊ¼»¯Ê±£¬
-»á´¥·¢org.apache.catalina.core.JasperListener£¬
-ÔÚ´ËÀàµÄlifecycleEvent·½·¨ÖĞ¼ÓÔØorg.apache.jasper.compiler.JspRuntimeContext£¬
+Tomcatåœ¨åˆå§‹åŒ–æ—¶ï¼Œ
+ä¼šè§¦å‘org.apache.catalina.core.JasperListenerï¼Œ
+åœ¨æ­¤ç±»çš„lifecycleEventæ–¹æ³•ä¸­åŠ è½½org.apache.jasper.compiler.JspRuntimeContextï¼Œ
 
-È»ºóÔÚorg.apache.jasper.compiler.JspRuntimeContextÀàµÄ¾²Ì¬³õÊ¼»¯¿éÖĞ
-Éú³ÉÒ»¸öorg.apache.jasper.runtime.JspFactoryImplÊµÀı£¬
-²¢µ÷ÓÃjavax.servlet.jsp.JspFactoryÀàµÄsetDefaultFactory¾²Ì¬ÎÄ·¨£¬
-org.apache.jasper.runtime.JspFactoryImplÊÇjavax.servlet.jsp.JspFactoryµÄ×ÓÀà¡£
-
-
-ÔÚÔËĞĞÆÚ¼äÖ»Éú³ÉÒ»¸öJspFactoryImplÊµÀı¡£
-JspFactoryÕâ¸ö¹¤³§ÀàÓÃÀ´Éú²újavax.servlet.js.JspApplicationContext£¬
-ºÍjavax.servlet.jsp.PageContext
+ç„¶ååœ¨org.apache.jasper.compiler.JspRuntimeContextç±»çš„é™æ€åˆå§‹åŒ–å—ä¸­
+ç”Ÿæˆä¸€ä¸ªorg.apache.jasper.runtime.JspFactoryImplå®ä¾‹ï¼Œ
+å¹¶è°ƒç”¨javax.servlet.jsp.JspFactoryç±»çš„setDefaultFactoryé™æ€æ–‡æ³•ï¼Œ
+org.apache.jasper.runtime.JspFactoryImplæ˜¯javax.servlet.jsp.JspFactoryçš„å­ç±»ã€‚
 
 
-2)´¦ÀíJSP
-ËùÓĞjspµÄ´¦ÀíÊ×ÏÈ±ØĞëÍ¨¹ıorg.apache.jasper.servlet.JspServlet£¬
-org.apache.jasper.servlet.JspServletÒ²ÊÇÒ»¸öHttpServlet,
-TomcatÔËĞĞÆÚ¼äÖ»ÓĞÒ»¸öorg.apache.jasper.servlet.JspServletÊµÀı£¬
-ÔÚTomcat×Ô¶¯µ÷ÓÃËüµÄinit·½·¨Ê±£¬
-»áÉú³ÉÒ»¸öorg.apache.jasper.compiler.JspRuntimeContextÊµÀı£¬
-ÔÚÔËĞĞÆÚ¼äÒ²Ö»ÓĞÒ»¸öorg.apache.jasper.compiler.JspRuntimeContextÊµÀı¡£
-
-ËùÓĞµÄjspÎÄ¼ş»á×ª»»³ÉÒ»¸öServlet£¬
-±»×ª»»ºóµÄÃ¿¸öServlet¶¼ÓÃÒ»¸ö
-org.apache.jasper.servlet.JspServletWrapperÊµÀı·â×°ÆğÀ´£¬
-²¢°ÑÓëjspÏà¹ØµÄuri(Í¨³£¾ÍÊÇjspÎÄ¼şÃû)ÓëJspServletWrapperÊµÀı´æÈëJspRuntimeContext
-
-3)JSPµÄ³õÊ¼»¯(×Ô¶¯µ÷ÓÃinit·½·¨):
-Tomcat»áÎªÃ¿¸öjspÉú³ÉÒ»¸öServletÎÄ¼ş£¬
-²¢ÇÒÔÚÊ×´Î¼ÓÔØÕâ¸öServletÊ±µ÷ÓÃËüµÄ_jspInit()·½·¨£¬
-ÔÚÕâ¸ö_jspInit()·½·¨ÖĞ×öÁËÈçÏÂÊÂÇé£º
+åœ¨è¿è¡ŒæœŸé—´åªç”Ÿæˆä¸€ä¸ªJspFactoryImplå®ä¾‹ã€‚
+JspFactoryè¿™ä¸ªå·¥å‚ç±»ç”¨æ¥ç”Ÿäº§javax.servlet.js.JspApplicationContextï¼Œ
+å’Œjavax.servlet.jsp.PageContext
 
 
+2)å¤„ç†JSP
+æ‰€æœ‰jspçš„å¤„ç†é¦–å…ˆå¿…é¡»é€šè¿‡org.apache.jasper.servlet.JspServletï¼Œ
+org.apache.jasper.servlet.JspServletä¹Ÿæ˜¯ä¸€ä¸ªHttpServlet,
+Tomcatè¿è¡ŒæœŸé—´åªæœ‰ä¸€ä¸ªorg.apache.jasper.servlet.JspServletå®ä¾‹ï¼Œ
+åœ¨Tomcatè‡ªåŠ¨è°ƒç”¨å®ƒçš„initæ–¹æ³•æ—¶ï¼Œ
+ä¼šç”Ÿæˆä¸€ä¸ªorg.apache.jasper.compiler.JspRuntimeContextå®ä¾‹ï¼Œ
+åœ¨è¿è¡ŒæœŸé—´ä¹Ÿåªæœ‰ä¸€ä¸ªorg.apache.jasper.compiler.JspRuntimeContextå®ä¾‹ã€‚
+
+æ‰€æœ‰çš„jspæ–‡ä»¶ä¼šè½¬æ¢æˆä¸€ä¸ªServletï¼Œ
+è¢«è½¬æ¢åçš„æ¯ä¸ªServletéƒ½ç”¨ä¸€ä¸ª
+org.apache.jasper.servlet.JspServletWrapperå®ä¾‹å°è£…èµ·æ¥ï¼Œ
+å¹¶æŠŠä¸jspç›¸å…³çš„uri(é€šå¸¸å°±æ˜¯jspæ–‡ä»¶å)ä¸JspServletWrapperå®ä¾‹å­˜å…¥JspRuntimeContext
+
+3)JSPçš„åˆå§‹åŒ–(è‡ªåŠ¨è°ƒç”¨initæ–¹æ³•):
+Tomcatä¼šä¸ºæ¯ä¸ªjspç”Ÿæˆä¸€ä¸ªServletæ–‡ä»¶ï¼Œ
+å¹¶ä¸”åœ¨é¦–æ¬¡åŠ è½½è¿™ä¸ªServletæ—¶è°ƒç”¨å®ƒçš„_jspInit()æ–¹æ³•ï¼Œ
+åœ¨è¿™ä¸ª_jspInit()æ–¹æ³•ä¸­åšäº†å¦‚ä¸‹äº‹æƒ…ï¼š
 
 
-µ÷ÓÃJspFactoryÀàµÄgetJspApplicationContext·½·¨¾Í»áµÃµ½Ò»¸ö
-JspApplicationContextÊµÀı£¬
-JspApplicationContextÔÚÔËĞĞÆÚ¼äÒ²Ö»ÓĞÒ»¸öÊµÀı£¬
-Õâ¸öÊµÀıÍ¨¹ıServletContextµÄsetAttribute±£´æÆğÀ´£¬
-ServletContextÊÇÒ»¸öÈ«¾ÖµÄ»·¾³£¬ÔÚTomcatÔËĞĞÆÚ¼äÒ»Ö±´æÔÚ£¬Ò²Ö»ÓĞÒ»¸öÊµÀı£¬
-ServletContextµÄÊµÀıÒıÓÃÊÇÍ¨¹ıJspFactoryÀàµÄgetJspApplicationContext·½·¨´«µİµÄ£¬
-ServletContextµÄsetAttributeÓÃkey=JspApplicationContextImpl.class.getName()°Ñ
-JspApplicationContextÔ­Î¨Ò»ÊµÀı±£´æÆğÀ´¡£
-
-JspApplicationContextÓëServletContext¿ÉÒÔ¿´³ÉÊÇÍ¬µÈ¼¶±ğµÄ¸ÅÄî£¬
-ServletContext¹ÜÀíËùÓĞµÄServlet£¬
-¶øJspApplicationContext¹ÜÀíËùÓĞµÄJSP¡£
 
 
-JspApplicationContextÓÃÀ´Éú³É:
+è°ƒç”¨JspFactoryç±»çš„getJspApplicationContextæ–¹æ³•å°±ä¼šå¾—åˆ°ä¸€ä¸ª
+JspApplicationContextå®ä¾‹ï¼Œ
+JspApplicationContextåœ¨è¿è¡ŒæœŸé—´ä¹Ÿåªæœ‰ä¸€ä¸ªå®ä¾‹ï¼Œ
+è¿™ä¸ªå®ä¾‹é€šè¿‡ServletContextçš„setAttributeä¿å­˜èµ·æ¥ï¼Œ
+ServletContextæ˜¯ä¸€ä¸ªå…¨å±€çš„ç¯å¢ƒï¼Œåœ¨Tomcatè¿è¡ŒæœŸé—´ä¸€ç›´å­˜åœ¨ï¼Œä¹Ÿåªæœ‰ä¸€ä¸ªå®ä¾‹ï¼Œ
+ServletContextçš„å®ä¾‹å¼•ç”¨æ˜¯é€šè¿‡JspFactoryç±»çš„getJspApplicationContextæ–¹æ³•ä¼ é€’çš„ï¼Œ
+ServletContextçš„setAttributeç”¨key=JspApplicationContextImpl.class.getName()æŠŠ
+JspApplicationContextåŸå”¯ä¸€å®ä¾‹ä¿å­˜èµ·æ¥ã€‚
+
+JspApplicationContextä¸ServletContextå¯ä»¥çœ‹æˆæ˜¯åŒç­‰çº§åˆ«çš„æ¦‚å¿µï¼Œ
+ServletContextç®¡ç†æ‰€æœ‰çš„Servletï¼Œ
+è€ŒJspApplicationContextç®¡ç†æ‰€æœ‰çš„JSPã€‚
+
+
+JspApplicationContextç”¨æ¥ç”Ÿæˆ:
 javax.el.ExpressionFactory,
-µ÷ÓÃgetExpressionFactory()·½·¨»áµÃµ½Ò»¸öjavax.el.ExpressionFactoryÊµÀı£¬
-Õâ¸öjavax.el.ExpressionFactoryÊµÀıÒ²Ö»ÓĞÒ»¸ö£¬
-javax.el.ExpressionFactoryÊµÀıÊµ¼ÊÊÇ
-org.apache.el.ExpressionFactoryImplµÄÊµÀı¡£
+è°ƒç”¨getExpressionFactory()æ–¹æ³•ä¼šå¾—åˆ°ä¸€ä¸ªjavax.el.ExpressionFactoryå®ä¾‹ï¼Œ
+è¿™ä¸ªjavax.el.ExpressionFactoryå®ä¾‹ä¹Ÿåªæœ‰ä¸€ä¸ªï¼Œ
+javax.el.ExpressionFactoryå®ä¾‹å®é™…æ˜¯
+org.apache.el.ExpressionFactoryImplçš„å®ä¾‹ã€‚
 
-»¹¿ÉÒÔÍ¨¹ıaddELResolver·½·¨°Ñ
-javax.el.ELResolverµÄ×ÓÀà¼Óµ½JspApplicationContextÖĞ,
-ÕâĞ©javax.el.ELResolverµÄ×ÓÀàÊÇ:
+è¿˜å¯ä»¥é€šè¿‡addELResolveræ–¹æ³•æŠŠ
+javax.el.ELResolverçš„å­ç±»åŠ åˆ°JspApplicationContextä¸­,
+è¿™äº›javax.el.ELResolverçš„å­ç±»æ˜¯:
 javax.servlet.jsp.el.ImplicitObjectELResolver
 javax.el.MapELResolver
 javax.el.ResourceBundleELResolver
@@ -72,13 +72,13 @@ javax.el.ArrayELResolver
 javax.el.BeanELResolver
 javax.servlet.jsp.el.ScopedAttributeELResolver
 
-»¹¿ÉÒÔÍ¨¹ıaddELContextListener·½·¨°Ñ
-javax.el.ELContextListener¼Óµ½JspApplicationContextÖĞ¡£
-(javax.el.ELContextListenerÄ¿Ç°ÔÚTomcatÖĞÎ´ÕÒµ½¾ßĞİÊµÏÖÀà)
+è¿˜å¯ä»¥é€šè¿‡addELContextListeneræ–¹æ³•æŠŠ
+javax.el.ELContextListeneråŠ åˆ°JspApplicationContextä¸­ã€‚
+(javax.el.ELContextListenerç›®å‰åœ¨Tomcatä¸­æœªæ‰¾åˆ°å…·ä¼‘å®ç°ç±»)
 
 
-4)µ÷ÓÃJSPÉú³ÉµÄServletµÄ_jspService·½·¨:
-´Ë·½·¨×Ô¶¯¶¨ÒåÏÂÃæ8¸ö±äÁ¿:
+4)è°ƒç”¨JSPç”Ÿæˆçš„Servletçš„_jspServiceæ–¹æ³•:
+æ­¤æ–¹æ³•è‡ªåŠ¨å®šä¹‰ä¸‹é¢8ä¸ªå˜é‡:
 HttpServletRequest request
 HttpServletResponse response
 PageContext pageContext
@@ -88,23 +88,23 @@ ServletConfig config
 JspWriter out
 Object page = this;
 
-pageÊµ¼ÊÉÏ¾ÍÊÇÉú³ÉµÄServletµÄÊµÀı±¾Éí£¬
-PageContextÍ¨¹ıJspFactoryµÄgetPageContext·½·¨»ñµÃ£¬
-PageContextÓëÃ¿¸öjspÒ»Ò»¶ÔÓ¦£¬
-JspFactoryµÄ×ÓÀàJspFactoryImplÓĞÒ»¸öPageContextPool£¬
-PageContextµÄÊµÀı¿ÉÒÔ´ÓPageContextPool»ñÈ¡£¬
-ÔÚÖ´ĞĞÍê_jspService·½·¨ºóÔÙ°ÑPageContextµÄÊµÀı·Å»ØPageContextPoolÖĞ¡£
+pageå®é™…ä¸Šå°±æ˜¯ç”Ÿæˆçš„Servletçš„å®ä¾‹æœ¬èº«ï¼Œ
+PageContexté€šè¿‡JspFactoryçš„getPageContextæ–¹æ³•è·å¾—ï¼Œ
+PageContextä¸æ¯ä¸ªjspä¸€ä¸€å¯¹åº”ï¼Œ
+JspFactoryçš„å­ç±»JspFactoryImplæœ‰ä¸€ä¸ªPageContextPoolï¼Œ
+PageContextçš„å®ä¾‹å¯ä»¥ä»PageContextPoolè·å–ï¼Œ
+åœ¨æ‰§è¡Œå®Œ_jspServiceæ–¹æ³•åå†æŠŠPageContextçš„å®ä¾‹æ”¾å›PageContextPoolä¸­ã€‚
 
-ÏÂÃæÕâËÄ¸ö±äÁ¿¶¼ÊÇÍ¨¹ıPageContextµÄÊµÀıµÃµ½
+ä¸‹é¢è¿™å››ä¸ªå˜é‡éƒ½æ˜¯é€šè¿‡PageContextçš„å®ä¾‹å¾—åˆ°
 HttpSession session
 ServletContext application
 ServletConfig config
 JspWriter out
-Êµ¼ÊÉÏÕâ4¸ö±äÁ¿¿ÉÒÔÖ±½Ó´ÓÉú³ÉµÄServletµÄÊµÀı¼ä½ÓµÃµ½£¬
+å®é™…ä¸Šè¿™4ä¸ªå˜é‡å¯ä»¥ç›´æ¥ä»ç”Ÿæˆçš„Servletçš„å®ä¾‹é—´æ¥å¾—åˆ°ï¼Œ
 config = servlet.getServletConfig()
 application = config.getServletContext()
 HttpSession session=((HttpServletRequest) request).getSession();
 
 JspWriter out = new org.apache.jasper.runtime.JspWriterImpl
 
-configÊµ¼ÊÉÏÊÇ´Ójavax.servlet.GenericServletµÃµ½µÄ
+configå®é™…ä¸Šæ˜¯ä»javax.servlet.GenericServletå¾—åˆ°çš„

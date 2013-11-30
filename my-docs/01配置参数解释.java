@@ -1,25 +1,25 @@
 1. org.apache.catalina.connector.Connector.parseBodyMethods
 
-¶ººÅ·Ö¸ôµÄhttpÇëÇó·½·¨Ãû£¬ÈçPOST£¬±ØĞèÊÇ´óĞ´¡£
-´Ë²ÎÊı±íÊ¾:ÇëÇóĞĞÖĞÊ²Ã´ÑùµÄhttpÇëÇó·½·¨Ãû²ÅÄÜ½âÎöÇëÇóÌå£¬
-Ä¬ÈÏÖ»ÓĞPOST·½·¨ÄÜ½âÎöÇëÇóÌå¡£
-ÓÃÔÚorg.apache.catalina.connector.Request.parseParameters()Õâ¸ö·½·¨ÖĞ£¬
-Õâ¸ö·½·¨µ±µ÷ÓÃRequest.getParameterÊ±»á´¥·¢
+é€—å·åˆ†éš”çš„httpè¯·æ±‚æ–¹æ³•åï¼Œå¦‚POSTï¼Œå¿…éœ€æ˜¯å¤§å†™ã€‚
+æ­¤å‚æ•°è¡¨ç¤º:è¯·æ±‚è¡Œä¸­ä»€ä¹ˆæ ·çš„httpè¯·æ±‚æ–¹æ³•åæ‰èƒ½è§£æè¯·æ±‚ä½“ï¼Œ
+é»˜è®¤åªæœ‰POSTæ–¹æ³•èƒ½è§£æè¯·æ±‚ä½“ã€‚
+ç”¨åœ¨org.apache.catalina.connector.Request.parseParameters()è¿™ä¸ªæ–¹æ³•ä¸­ï¼Œ
+è¿™ä¸ªæ–¹æ³•å½“è°ƒç”¨Request.getParameteræ—¶ä¼šè§¦å‘
 
-µ«ÊÇ²»ÄÜ°üº¬TRACE£¬·ñÔò»áÅ×:
+ä½†æ˜¯ä¸èƒ½åŒ…å«TRACEï¼Œå¦åˆ™ä¼šæŠ›:
 throw new IllegalArgumentException(sm.getString("coyoteConnector.parseBodyMethodNoTrace"));
 java.lang.IllegalArgumentException: TRACE method MUST NOT include an entity (see RFC 2616 Section 9.6),
-µ«ÊÇÔÚIntrospectionUtils.setProperty(Object, String, String, boolean) line: 390	
-±»ºöÂÔÁËÍ¬£¬ÆôÓÃif (log.isDebugEnabled())ºó²ÅÄÜ¿´µÃµ½
+ä½†æ˜¯åœ¨IntrospectionUtils.setProperty(Object, String, String, boolean) line: 390	
+è¢«å¿½ç•¥äº†åŒï¼Œå¯ç”¨if (log.isDebugEnabled())åæ‰èƒ½çœ‹å¾—åˆ°
 
 
-2. useBodyEncodingForURIºÍURIEncoding²ÎÊı
-Èç¹ûuseBodyEncodingForURIÉèÎªtrue£¬ÄÇÃ´URIEncoding²ÎÊıÎŞÂÛÉèÖÃÊ²Ã´¶¼ÊÇ²»»áÆğ×÷ÓÃµÄ
-Èç¹ûuseBodyEncodingForURIÉèÎªtrue£¬Ôò:
-1) ¿´¿´ÓĞÃ»ÓĞContent-TypeÍ·£¬È¡³öÀïÃæµÄcharset£¬
-2) ¿´¿´ÓÃ»§ÊÇ·ñµ÷ÓÃ¹ırequest.setCharacterEncoding(...);
-Èç¹û1ºÍ2¶¼Éè¹ı£¬ÄÇÃ´È¡2µÄ£¬µ±´Ó1ºÍ2ÄÜÈ¡µ½×Ö·û±àÂëÊ±¾ÍÓÃËûÃÇÖ¸¶¨µÄ£¬
-·ñÔòÓÃISO-8859-1
+2. useBodyEncodingForURIå’ŒURIEncodingå‚æ•°
+å¦‚æœuseBodyEncodingForURIè®¾ä¸ºtrueï¼Œé‚£ä¹ˆURIEncodingå‚æ•°æ— è®ºè®¾ç½®ä»€ä¹ˆéƒ½æ˜¯ä¸ä¼šèµ·ä½œç”¨çš„
+å¦‚æœuseBodyEncodingForURIè®¾ä¸ºtrueï¼Œåˆ™:
+1) çœ‹çœ‹æœ‰æ²¡æœ‰Content-Typeå¤´ï¼Œå–å‡ºé‡Œé¢çš„charsetï¼Œ
+2) çœ‹çœ‹ç”¨æˆ·æ˜¯å¦è°ƒç”¨è¿‡request.setCharacterEncoding(...);
+å¦‚æœ1å’Œ2éƒ½è®¾è¿‡ï¼Œé‚£ä¹ˆå–2çš„ï¼Œå½“ä»1å’Œ2èƒ½å–åˆ°å­—ç¬¦ç¼–ç æ—¶å°±ç”¨ä»–ä»¬æŒ‡å®šçš„ï¼Œ
+å¦åˆ™ç”¨ISO-8859-1
 
-Èç¹ûuseBodyEncodingForURIÉèÎªfalse£¬¾ÍÓÃURIEncoding²ÎÊıÀ´½âÎöuri¡£
+å¦‚æœuseBodyEncodingForURIè®¾ä¸ºfalseï¼Œå°±ç”¨URIEncodingå‚æ•°æ¥è§£æuriã€‚
 

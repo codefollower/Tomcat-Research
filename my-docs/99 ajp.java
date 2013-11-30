@@ -2,16 +2,16 @@ AbstractAjpProtocol
 
 tomcatAuthentication = true
 requiredSecret = null
-packetSize = 8k (Èç¹ûÉè¶¨µÄÖµĞ¡ÓÚ8k£¬ÄÇÃ´»¹ÊÇ»áÓÃ8k)
+packetSize = 8k (å¦‚æœè®¾å®šçš„å€¼å°äº8kï¼Œé‚£ä¹ˆè¿˜æ˜¯ä¼šç”¨8k)
 
-apacheÓëtomcatÖ®¼äµÄÁ¬½ÓÒ»Ö±´¦ÓÚ´ò¿ª×´Ì¬(SoTimeoutÄ¬ÈÏÊÇ-1)
+apacheä¸tomcatä¹‹é—´çš„è¿æ¥ä¸€ç›´å¤„äºæ‰“å¼€çŠ¶æ€(SoTimeouté»˜è®¤æ˜¯-1)
 
 
-AbstractAjpProcessorµÄ×Ö¶Î
+AbstractAjpProcessorçš„å­—æ®µ
 =================================
-ÕâÈı¸ö×Ö¶ÎµÄ´óÓÚ¶¼ÊÇpacketSize
-requestHeaderMessage ÓÃÓÚ½ÓÊÕÇëÇóÍ·
-responseHeaderMessage ÏÈÓÃÓÚ·¢ËÍÏìÓ¦Í·£¬È»ºóÔÙ¸´ÓÃ¶à´ÎÓÃÀ´·¢ËÍÏìÓ¦Ìå
-bodyMessage ÓÃÓÚ½ÓÊÕÇëÇóÌå
+è¿™ä¸‰ä¸ªå­—æ®µçš„å¤§äºéƒ½æ˜¯packetSize
+requestHeaderMessage ç”¨äºæ¥æ”¶è¯·æ±‚å¤´
+responseHeaderMessage å…ˆç”¨äºå‘é€å“åº”å¤´ï¼Œç„¶åå†å¤ç”¨å¤šæ¬¡ç”¨æ¥å‘é€å“åº”ä½“
+bodyMessage ç”¨äºæ¥æ”¶è¯·æ±‚ä½“
 
 

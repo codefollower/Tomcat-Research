@@ -1,25 +1,25 @@
-ÔÚ±àÒëJSPÊ±£¬Ã¿¸öEL±í´ïÊ½Òª½øĞĞÕâÑùµÄ×ª»»:
-Ã¿¸öEL±í´ïÊ½¶¼Òª×ª³ÉproprietaryEvaluateµ÷ÓÃ£¬Èç:
+åœ¨ç¼–è¯‘JSPæ—¶ï¼Œæ¯ä¸ªELè¡¨è¾¾å¼è¦è¿›è¡Œè¿™æ ·çš„è½¬æ¢:
+æ¯ä¸ªELè¡¨è¾¾å¼éƒ½è¦è½¬æˆproprietaryEvaluateè°ƒç”¨ï¼Œå¦‚:
 org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${fn:escapeXml(param[\"foo\"])}", java.lang.String.class, (PageContext)_jspx_page_context, _jspx_fnmap_0, false));
 
-1) Èç¹ûEL±í´ïÊ½ÖĞÓĞ·½·¨µ÷ÓÃ:
-Èçjsp\jsp2\el\functions.jspÖĞµÄ:
-${fn:escapeXml(param["foo"])}£¬
-»á°´·½·¨µ÷ÓÃµÄÇ¶Ì×²ã´Î¹¹ÔìÒ»¸ö:
+1) å¦‚æœELè¡¨è¾¾å¼ä¸­æœ‰æ–¹æ³•è°ƒç”¨:
+å¦‚jsp\jsp2\el\functions.jspä¸­çš„:
+${fn:escapeXml(param["foo"])}ï¼Œ
+ä¼šæŒ‰æ–¹æ³•è°ƒç”¨çš„åµŒå¥—å±‚æ¬¡æ„é€ ä¸€ä¸ª:
 org.apache.jasper.runtime.ProtectedFunctionMapper
-È»ºó°ÑÕâ¸öProtectedFunctionMapperÊµÀı´«¸øproprietaryEvaluate·½·¨,
+ç„¶åæŠŠè¿™ä¸ªProtectedFunctionMapperå®ä¾‹ä¼ ç»™proprietaryEvaluateæ–¹æ³•,
 
-ÕâÊÇ${fn:escapeXml(param["foo"])}ÔÚ±àÒëjspºóÉú³ÉµÄServletµÄ´úÂëÆ¬¶Î:
+è¿™æ˜¯${fn:escapeXml(param["foo"])}åœ¨ç¼–è¯‘jspåç”Ÿæˆçš„Servletçš„ä»£ç ç‰‡æ®µ:
 static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_0;
 static {
   _jspx_fnmap_0= org.apache.jasper.runtime.ProtectedFunctionMapper.getMapForFunction("fn:escapeXml", org.apache.taglibs.standard.functions.Functions.class, "escapeXml", new Class[] {java.lang.String.class});
 }
-ÉÏÃæÕâ¸öÒòÎªÖ»ÓĞÒ»¸öfn:escapeXml£¬ËùÒÔµ÷ÓÃgetMapForFunctionµÃµ½µÄProtectedFunctionMapper£¬
-ÔÚËüÄÚ²¿Ö»»áÓÃµ½Method theMethod×Ö¶Î£¬
+ä¸Šé¢è¿™ä¸ªå› ä¸ºåªæœ‰ä¸€ä¸ªfn:escapeXmlï¼Œæ‰€ä»¥è°ƒç”¨getMapForFunctionå¾—åˆ°çš„ProtectedFunctionMapperï¼Œ
+åœ¨å®ƒå†…éƒ¨åªä¼šç”¨åˆ°Method theMethodå­—æ®µï¼Œ
 
-¶ø¶ÔÓÚ:${my:reverse(my:reverse(fn:escapeXml(param["foo"])))}
-ËäÈ»Ç¶Ì×ÁËÈı²ã£¬µ«ÊÇÊµ¼ÊÉÏÖ»ÓĞ:my:reverseºÍfn:escapeXml
-ÔÚ±àÒëjspºóÉú³ÉµÄServletµÄ´úÂëÆ¬¶ÎÈçÏÂ:
+è€Œå¯¹äº:${my:reverse(my:reverse(fn:escapeXml(param["foo"])))}
+è™½ç„¶åµŒå¥—äº†ä¸‰å±‚ï¼Œä½†æ˜¯å®é™…ä¸Šåªæœ‰:my:reverseå’Œfn:escapeXml
+åœ¨ç¼–è¯‘jspåç”Ÿæˆçš„Servletçš„ä»£ç ç‰‡æ®µå¦‚ä¸‹:
 static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_1;
 static {
 	_jspx_fnmap_1= org.apache.jasper.runtime.ProtectedFunctionMapper.getInstance();
@@ -29,20 +29,20 @@ static {
   
 }
 
-ÕâÀïÓÃProtectedFunctionMapper.getInstance()µÃµ½Ò»¸öÊµÀı£¬
-È»ºóÔÚµ÷ÓÃmapFunction·½·¨£¬
-ÕâÑùµÃµ½µÄProtectedFunctionMapperÔÚÄÚ²¿»áÓÃÒ»¸öHashMap<String,Method> fnmapÀ´´æ·Å·½·¨£¬
+è¿™é‡Œç”¨ProtectedFunctionMapper.getInstance()å¾—åˆ°ä¸€ä¸ªå®ä¾‹ï¼Œ
+ç„¶ååœ¨è°ƒç”¨mapFunctionæ–¹æ³•ï¼Œ
+è¿™æ ·å¾—åˆ°çš„ProtectedFunctionMapperåœ¨å†…éƒ¨ä¼šç”¨ä¸€ä¸ªHashMap<String,Method> fnmapæ¥å­˜æ”¾æ–¹æ³•ï¼Œ
 
 
-ProtectedFunctionMapperÁ½ÖÖÇé¿ö·Ö¿ª¶Ô´ı£¬Ò»¶¨³ÌÊÔÉÏ¿ÉÒÔÌá¸ßMethodµÄ²éÕÒËÙ¶È¡£
+ProtectedFunctionMapperä¸¤ç§æƒ…å†µåˆ†å¼€å¯¹å¾…ï¼Œä¸€å®šç¨‹è¯•ä¸Šå¯ä»¥æé«˜Methodçš„æŸ¥æ‰¾é€Ÿåº¦ã€‚
 
 
 
-2) Èç¹ûEL±í´ïÊ½ÖĞÃ»ÓĞ·½·¨µ÷ÓÃ:
-Ïñjsp\jsp2\el\basic-arithmetic.jspÖĞµÄÄÇĞ©el±í´ïÊ½£¬
-´ËÊ±Éú³ÉµÄproprietaryEvaluate·½·¨£¬´«¸øfunctionMap²ÎÊıµÄÖµ¶¼ÊÇnull
+2) å¦‚æœELè¡¨è¾¾å¼ä¸­æ²¡æœ‰æ–¹æ³•è°ƒç”¨:
+åƒjsp\jsp2\el\basic-arithmetic.jspä¸­çš„é‚£äº›elè¡¨è¾¾å¼ï¼Œ
+æ­¤æ—¶ç”Ÿæˆçš„proprietaryEvaluateæ–¹æ³•ï¼Œä¼ ç»™functionMapå‚æ•°çš„å€¼éƒ½æ˜¯null
 
-ÁíÍâ£¬PageContext pageContext×Ö¶Î¾ÍÊÇ¶ÔÓ¦jspÉú³ÉºóµÄServlet¶ÔÓ¦µÄPageContext£¬
-Ã¿¸öjsp¶¼¶ÀÁ¢µÄ¶ÔÓ¦Ò»¸öPageContext¡£
+å¦å¤–ï¼ŒPageContext pageContextå­—æ®µå°±æ˜¯å¯¹åº”jspç”Ÿæˆåçš„Servletå¯¹åº”çš„PageContextï¼Œ
+æ¯ä¸ªjspéƒ½ç‹¬ç«‹çš„å¯¹åº”ä¸€ä¸ªPageContextã€‚
 
-proprietaryEvaluateÄÚ²¿¶¼ÊÇÉú³ÉValueExpression£¬¶øÃ»ÓĞMethodExpression
+proprietaryEvaluateå†…éƒ¨éƒ½æ˜¯ç”ŸæˆValueExpressionï¼Œè€Œæ²¡æœ‰MethodExpression

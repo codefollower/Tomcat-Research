@@ -1,5 +1,5 @@
-new URLClassLoader(urls)ÕâÑùµÃµ½µÄparentÄ¬ÈÏ»áÊÇsun.misc.Launcher$AppClassLoader
-new URLClassLoader(urls, null)ÕâÑùµÃµ½µÄparent²ÅÊÇnull
+new URLClassLoader(urls)è¿™æ ·å¾—åˆ°çš„parenté»˜è®¤ä¼šæ˜¯sun.misc.Launcher$AppClassLoader
+new URLClassLoader(urls, null)è¿™æ ·å¾—åˆ°çš„parentæ‰æ˜¯null
 
-org.apache.catalina.startup.Bootstrap.initClassLoaders()ÖĞ
-commonLoaderµÄparentÊÇsun.misc.Launcher$AppClassLoader
+org.apache.catalina.startup.Bootstrap.initClassLoaders()ä¸­
+commonLoaderçš„parentæ˜¯sun.misc.Launcher$AppClassLoader

@@ -1,25 +1,25 @@
 2010-1-26 23:41:51 org.apache.catalina.core.AprLifecycleListener init
-ĞÅÏ¢: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\JavaSE\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\JavaCC\javacc-5.0\bin;D:\Python26\Lib\site-packages\django\bin;D:\Python26;D:\JavaSE\bin;D:\JavaFX\bin;D:\JavaFX\emulator\bin;E:\Play1.1;E:\Play;D:\oracle\ora90\bin;D:\Oracle11\zhh\product\11.1.0\db_1\bin;D:\Svn;D:\Program Files\MySQL\MySQL Server 5.1\bin;D:\oracle\ora90\Apache\Perl\5.00503\bin\mswin32-x86;C:\Program Files\Oracle\jre\1.1.8\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Common Files\Thunder Network\KanKan\Codecs;C:\Program Files\Microsoft SQL Server\80\Tools\BINN
+ä¿¡æ¯: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\JavaSE\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\JavaCC\javacc-5.0\bin;D:\Python26\Lib\site-packages\django\bin;D:\Python26;D:\JavaSE\bin;D:\JavaFX\bin;D:\JavaFX\emulator\bin;E:\Play1.1;E:\Play;D:\oracle\ora90\bin;D:\Oracle11\zhh\product\11.1.0\db_1\bin;D:\Svn;D:\Program Files\MySQL\MySQL Server 5.1\bin;D:\oracle\ora90\Apache\Perl\5.00503\bin\mswin32-x86;C:\Program Files\Oracle\jre\1.1.8\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Common Files\Thunder Network\KanKan\Codecs;C:\Program Files\Microsoft SQL Server\80\Tools\BINN
 2010-1-26 23:41:51 org.apache.coyote.http11.Http11Protocol init
-ĞÅÏ¢: Initializing Coyote HTTP/1.1 on http-8080
+ä¿¡æ¯: Initializing Coyote HTTP/1.1 on http-8080
 2010-1-26 23:41:51 org.apache.catalina.startup.Catalina load
-ĞÅÏ¢: Initialization processed in 523 ms
+ä¿¡æ¯: Initialization processed in 523 ms
 2010-1-26 23:41:52 org.apache.catalina.core.StandardService start
-ĞÅÏ¢: Starting service Catalina
+ä¿¡æ¯: Starting service Catalina
 2010-1-26 23:41:52 org.apache.catalina.core.StandardEngine start
-ĞÅÏ¢: Starting Servlet Engine: Apache Tomcat/@VERSION@
+ä¿¡æ¯: Starting Servlet Engine: Apache Tomcat/@VERSION@
 2010-1-26 23:41:52 org.apache.catalina.startup.HostConfig deployDirectory
-ĞÅÏ¢: Deploying web application directory examples
+ä¿¡æ¯: Deploying web application directory examples
 2010-1-26 23:41:52 org.apache.catalina.startup.HostConfig deployDirectory
-ĞÅÏ¢: Deploying web application directory ROOT
+ä¿¡æ¯: Deploying web application directory ROOT
 2010-1-26 23:41:52 org.apache.coyote.http11.Http11Protocol start
-ĞÅÏ¢: Starting Coyote HTTP/1.1 on http-8080
+ä¿¡æ¯: Starting Coyote HTTP/1.1 on http-8080
 2010-1-26 23:41:52 org.apache.jk.common.ChannelSocket init
-ĞÅÏ¢: JK: ajp13 listening on /0.0.0.0:8009
+ä¿¡æ¯: JK: ajp13 listening on /0.0.0.0:8009
 2010-1-26 23:41:52 org.apache.jk.server.JkMain start
-ĞÅÏ¢: Jk running ID=0 time=0/31  config=null
+ä¿¡æ¯: Jk running ID=0 time=0/31  config=null
 2010-1-26 23:41:52 org.apache.catalina.startup.Catalina start
-ĞÅÏ¢: Server startup in 684 ms
+ä¿¡æ¯: Server startup in 684 ms
 org.apache.jasper.compiler.ParserController===>parseDirectives(1)
 -----------------------------------------------------------
 inFileName=/jspTest.jsp
@@ -48,14 +48,14 @@ java.lang.Error
 	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:588)
 	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
 	at java.lang.Thread.run(Thread.java:619)
-ÍË³ö(µ÷ÊÔÓÃÍ¾)
+é€€å‡º(è°ƒè¯•ç”¨é€”)
 
 
-Ö¸Áî(directive):
-JSP¸ñÊ½µÄÖ¸ÁîÒÔ "<%@" ¿ªÍ·
-XML¸ñÊ½µÄÖ¸ÁîÒÔ "<jsp:directive." ¿ªÍ·
+æŒ‡ä»¤(directive):
+JSPæ ¼å¼çš„æŒ‡ä»¤ä»¥ "<%@" å¼€å¤´
+XMLæ ¼å¼çš„æŒ‡ä»¤ä»¥ "<jsp:directive." å¼€å¤´
 
-Ö¸ÁîÓĞÒÔÏÂ6ÖÖ:
+æŒ‡ä»¤æœ‰ä»¥ä¸‹6ç§:
 page
 include
 taglib
@@ -63,38 +63,38 @@ tag
 attribute
 variable
 
-tag¡¢attribute¡¢variableÕâÈıÖÖÖ¸ÁîÖ»ÄÜÓÃÓÚtagÎÄ¼şÖĞ(ÒÔ".tag"ÎªÀ©Õ¹ÃûµÄÎÄ¼ş)
-pageÖ¸Áî²»ÄÜÓÃÓÚtagÎÄ¼ş
+tagã€attributeã€variableè¿™ä¸‰ç§æŒ‡ä»¤åªèƒ½ç”¨äºtagæ–‡ä»¶ä¸­(ä»¥".tag"ä¸ºæ‰©å±•åçš„æ–‡ä»¶)
+pageæŒ‡ä»¤ä¸èƒ½ç”¨äºtagæ–‡ä»¶
 
-tagÎÄ¼ş´æ·ÅµÄÄ¿Â¼±ØĞëÊÇ"/WEB-INF/tags"»òÆä×ÓÄ¿Â¼¡£
+tagæ–‡ä»¶å­˜æ”¾çš„ç›®å½•å¿…é¡»æ˜¯"/WEB-INF/tags"æˆ–å…¶å­ç›®å½•ã€‚
 
-×¢Òâ:
-ÒÔÏÂÖ¸Áî²»ÄÜÓÃÓÚtagÎÄ¼şÖĞ
+æ³¨æ„:
+ä»¥ä¸‹æŒ‡ä»¤ä¸èƒ½ç”¨äºtagæ–‡ä»¶ä¸­
 <%@ page
 
-ÒÔÏÂÖ¸ÁîÖ»ÄÜÓÃÓÚtagÎÄ¼şÖĞ
+ä»¥ä¸‹æŒ‡ä»¤åªèƒ½ç”¨äºtagæ–‡ä»¶ä¸­
 <%@ tag
 <%@ attribute
 <%@ variable
 
-ÊôĞÔÖµ±ØĞëÓÃµ¥ÒıºÅ»òË«ÒıºÅÀ¨ÆğÀ´
+å±æ€§å€¼å¿…é¡»ç”¨å•å¼•å·æˆ–åŒå¼•å·æ‹¬èµ·æ¥
 
-ÕâÑùµÄÓï·¨Ò²ÊÇ¿ÉÒÔµÄ:
+è¿™æ ·çš„è¯­æ³•ä¹Ÿæ˜¯å¯ä»¥çš„:
 <%@ pageimport="java.io.*" %>
-Ïñ"pageimport"ÕâÑùÖ¸ÁîÃû¸úÊôĞÔÃûÁ¬ÔÚÒ»ÆğÁË£¬
-ÒòÎªjasperÊÇ°´×îĞ¡Ç°×ºÀ´Æ¥ÅäÖ¸ÁîÃûµÄ
+åƒ"pageimport"è¿™æ ·æŒ‡ä»¤åè·Ÿå±æ€§åè¿åœ¨ä¸€èµ·äº†ï¼Œ
+å› ä¸ºjasperæ˜¯æŒ‰æœ€å°å‰ç¼€æ¥åŒ¹é…æŒ‡ä»¤åçš„
 
 
 
-Ã¿¸öJSPÒª¾­¹ıÁ½´Î½âÎö£¬
-µÚÒ»´ÎÏÈ½âÎö5¸öÖ¸Áî£¬·Ö±ğÊÇ:
+æ¯ä¸ªJSPè¦ç»è¿‡ä¸¤æ¬¡è§£æï¼Œ
+ç¬¬ä¸€æ¬¡å…ˆè§£æ5ä¸ªæŒ‡ä»¤ï¼Œåˆ†åˆ«æ˜¯:
 page
 include
 tag
 attribute
 variable
 
-×¢Òâ£ºtaglibÔÚµÚÒ»´Î½âÎöÊ±±»ºöÂÔ¡£
-½âÎöÍêÉÏÃæµÄ5¸öÖ¸Áîºó£¬»áÉú³ÉÒ»¸öNode.Nodes£¬
-È»ºóÍ¨¹ıValidatorÀàµÄvalidateDirectives·½·¨ÑéÖ¤ËùÓĞÖ¸ÁîÊÇ·ñÕıÈ·£¬
-µÚÒ»´Î½âÎöµÄ½á¹û½«´æ·Åµ½PageInfoÖĞ(Ò»¸öPageInfoÓëÒ»¸öjspÎÄ¼şÏà¹Ø)
+æ³¨æ„ï¼štaglibåœ¨ç¬¬ä¸€æ¬¡è§£ææ—¶è¢«å¿½ç•¥ã€‚
+è§£æå®Œä¸Šé¢çš„5ä¸ªæŒ‡ä»¤åï¼Œä¼šç”Ÿæˆä¸€ä¸ªNode.Nodesï¼Œ
+ç„¶åé€šè¿‡Validatorç±»çš„validateDirectivesæ–¹æ³•éªŒè¯æ‰€æœ‰æŒ‡ä»¤æ˜¯å¦æ­£ç¡®ï¼Œ
+ç¬¬ä¸€æ¬¡è§£æçš„ç»“æœå°†å­˜æ”¾åˆ°PageInfoä¸­(ä¸€ä¸ªPageInfoä¸ä¸€ä¸ªjspæ–‡ä»¶ç›¸å…³)

@@ -1,8 +1,8 @@
-org.apache.coyote.http11.AbstractHttp11ProcessorÖĞµÄ
-Ò»Ğ©setXXXÊôĞÔÊÇ²»ÄÜÍ¨¹ıÅäÖÃÎÄ¼şserver.xmlÖ¸¶¨µÄ£¬
-¶¼ÊÇÍ¨¹ıorg.apache.coyote.http11.Http11Protocol.Http11ConnectionHandler.createProcessor()ÕâÑùµÄ·½·¨°Ñ
-Http11ProtocolÖĞµÄ²ÎÊı´«µ½AbstractHttp11Processor£¬
+org.apache.coyote.http11.AbstractHttp11Processorä¸­çš„
+ä¸€äº›setXXXå±æ€§æ˜¯ä¸èƒ½é€šè¿‡é…ç½®æ–‡ä»¶server.xmlæŒ‡å®šçš„ï¼Œ
+éƒ½æ˜¯é€šè¿‡org.apache.coyote.http11.Http11Protocol.Http11ConnectionHandler.createProcessor()è¿™æ ·çš„æ–¹æ³•æŠŠ
+Http11Protocolä¸­çš„å‚æ•°ä¼ åˆ°AbstractHttp11Processorï¼Œ
 
-org.apache.coyote.http11.Http11Protocol.Http11ConnectionHandler.createProcessor()ÖĞÖ»ÓĞÏÂÃæÕâ¸ö·½·¨Ã»µ÷ÓÃ
+org.apache.coyote.http11.Http11Protocol.Http11ConnectionHandler.createProcessor()ä¸­åªæœ‰ä¸‹é¢è¿™ä¸ªæ–¹æ³•æ²¡è°ƒç”¨
 void org.apache.coyote.http11.AbstractHttp11Processor.setCompressableMimeTypes(String[] compressableMimeTypes)
-Õâ¸ö·½·¨´ÓÎ´±»Ê¹ÓÃ
+è¿™ä¸ªæ–¹æ³•ä»æœªè¢«ä½¿ç”¨

@@ -21,5 +21,5 @@ final class TaglibLocationRule extends Rule {
     }
 }
 
-servlet2.4+£¬²»ÄÜÔÚweb.xmlÖĞÖ±½ÓÊ¹ÓÃ<taglib>,
-±ØĞë·ÅÔÚ<jsp-config>ÖĞ
+servlet2.4+ï¼Œä¸èƒ½åœ¨web.xmlä¸­ç›´æ¥ä½¿ç”¨<taglib>,
+å¿…é¡»æ”¾åœ¨<jsp-config>ä¸­

@@ -1,4 +1,4 @@
-conf/web.xmlÎÄ¼şÖĞ¶¨ÒåÁËÒ»¸ö´¦ÀíËùÓĞjspÒ³ÃæµÄ×Üservlet
+conf/web.xmlæ–‡ä»¶ä¸­å®šä¹‰äº†ä¸€ä¸ªå¤„ç†æ‰€æœ‰jspé¡µé¢çš„æ€»servlet
 <servlet>
         <servlet-name>jsp</servlet-name>
         <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
@@ -13,7 +13,7 @@ conf/web.xmlÎÄ¼şÖĞ¶¨ÒåÁËÒ»¸ö´¦ÀíËùÓĞjspÒ³ÃæµÄ×Üservlet
         <load-on-startup>3</load-on-startup>
     </servlet>
 
-Èç¹ûÔÚweb-info\web.xmlÖĞ¶¨ÒåÁË<jsp-file>ÀàĞÍµÄservlet£¬ÈçÏÂÀı×Ó:
+å¦‚æœåœ¨web-info\web.xmlä¸­å®šä¹‰äº†<jsp-file>ç±»å‹çš„servletï¼Œå¦‚ä¸‹ä¾‹å­:
     <servlet>
       <servlet-name>form</servlet-name>
       <jsp-file>/form.jsp</jsp-file>
@@ -26,19 +26,19 @@ conf/web.xmlÎÄ¼şÖĞ¶¨ÒåÁËÒ»¸ö´¦ÀíËùÓĞjspÒ³ÃæµÄ×Üservlet
           <param-value>myvalue</param-value>
       </init-param>
     </servlet>
-Ã¿¸öÕâÑùµÄservlet±»°ü×°³ÉÒ»¸öorg.apache.catalina.deploy.ServletDefÊµÀı£¬
-Õâ¸öServletDefÊµÀıµÄservletClass×Ö¶ÎÊÇnull£¬¶øjspFile×Ö¶ÎÊÇ/form.jsp£¬
-parametersÊÇ"jspFile=haha.jsp,myname=myvalue"£¬
-µ±½øĞĞµ½org.apache.catalina.startup.ContextConfig.webConfig()->convertJsps()Ê±£¬
-»á°ÑÕâÖÖ<jsp-file>ÀàĞÍµÄservlet½øĞĞÌØÊâ´¦Àí£¬
-°ÑservletClass×Ö¶ÎÉèÎª"org.apache.jasper.servlet.JspServlet"£¬
-°ÑÉÏÃæconf/web.xmlÎÄ¼şÖĞÄÇ¸öjspµÄËùÓĞinit-param·Åµ½ÉÏÃæÕâ¸öparametersÖĞ£¬
-Í¬Ê±ÔÚÕâ¸öparametersÖĞput("jspFile", "/form.jsp");
-Ö®Ç°Õâ¸öparametersÖĞÈç¹ûÒ²ÓĞ"jspFile"ÕâÑùµÄkey£¬±ÈÈçÔÚÕâ¸öÀı×ÓÖĞÕâ¸ökeyµÄÖµÊÇ"haha.jsp"£¬
-ÄÇÃ´½«»á±»"/form.jsp"Ìæ»»£¬
-Õâ¸öput("jspFile", ...)ÊÇtomcatÄÚÖÃµÄĞĞÎª£¬Òò´ËÇ§Íò²»ÒªÒÀÀµÃû³ÆÎª"jspFile"µÄ<init-param>¡£
+æ¯ä¸ªè¿™æ ·çš„servletè¢«åŒ…è£…æˆä¸€ä¸ªorg.apache.catalina.deploy.ServletDefå®ä¾‹ï¼Œ
+è¿™ä¸ªServletDefå®ä¾‹çš„servletClasså­—æ®µæ˜¯nullï¼Œè€ŒjspFileå­—æ®µæ˜¯/form.jspï¼Œ
+parametersæ˜¯"jspFile=haha.jsp,myname=myvalue"ï¼Œ
+å½“è¿›è¡Œåˆ°org.apache.catalina.startup.ContextConfig.webConfig()->convertJsps()æ—¶ï¼Œ
+ä¼šæŠŠè¿™ç§<jsp-file>ç±»å‹çš„servletè¿›è¡Œç‰¹æ®Šå¤„ç†ï¼Œ
+æŠŠservletClasså­—æ®µè®¾ä¸º"org.apache.jasper.servlet.JspServlet"ï¼Œ
+æŠŠä¸Šé¢conf/web.xmlæ–‡ä»¶ä¸­é‚£ä¸ªjspçš„æ‰€æœ‰init-paramæ”¾åˆ°ä¸Šé¢è¿™ä¸ªparametersä¸­ï¼Œ
+åŒæ—¶åœ¨è¿™ä¸ªparametersä¸­put("jspFile", "/form.jsp");
+ä¹‹å‰è¿™ä¸ªparametersä¸­å¦‚æœä¹Ÿæœ‰"jspFile"è¿™æ ·çš„keyï¼Œæ¯”å¦‚åœ¨è¿™ä¸ªä¾‹å­ä¸­è¿™ä¸ªkeyçš„å€¼æ˜¯"haha.jsp"ï¼Œ
+é‚£ä¹ˆå°†ä¼šè¢«"/form.jsp"æ›¿æ¢ï¼Œ
+è¿™ä¸ªput("jspFile", ...)æ˜¯tomcatå†…ç½®çš„è¡Œä¸ºï¼Œå› æ­¤åƒä¸‡ä¸è¦ä¾èµ–åç§°ä¸º"jspFile"çš„<init-param>ã€‚
 
-×îºó£¬Õâ¸öServletDefÊµÀıµÄjspFile×Ö¶Î±»ÉèÎªnull¡£
-ÕâÑùÔÚorg.apache.jasper.servlet.JspServletµÄinit·½·¨ÖĞ¿ÉÒÔÍ¨¹ı
-config.getInitParameter("jspFile")ÕâĞĞ´úÂë°ÑÔ­Ê¼µÄjspÎÄ¼şÈ¡³öÀ´¡£
+æœ€åï¼Œè¿™ä¸ªServletDefå®ä¾‹çš„jspFileå­—æ®µè¢«è®¾ä¸ºnullã€‚
+è¿™æ ·åœ¨org.apache.jasper.servlet.JspServletçš„initæ–¹æ³•ä¸­å¯ä»¥é€šè¿‡
+config.getInitParameter("jspFile")è¿™è¡Œä»£ç æŠŠåŸå§‹çš„jspæ–‡ä»¶å–å‡ºæ¥ã€‚
 

@@ -1,8 +1,8 @@
 public void registerComponent(Object bean, ObjectName oname, String type)
-Ö»ÓĞÒ»¸öµÄtype²»Îªnull(Catalina:type=Deployer,host=localhost)£¬
-ÆäËû¶¼Îªnull
+åªæœ‰ä¸€ä¸ªçš„typeä¸ä¸ºnull(Catalina:type=Deployer,host=localhost)ï¼Œ
+å…¶ä»–éƒ½ä¸ºnull
 
-ÏÈÉ¨ÃèÒÔÏÂÎÄ¼ş:
+å…ˆæ‰«æä»¥ä¸‹æ–‡ä»¶:
 org/apache/catalina/mbeans/mbeans-descriptors.xml
 org/apache/catalina/authenticator/mbeans-descriptors.xml
 org/apache/catalina/core/mbeans-descriptors.xml
@@ -16,29 +16,29 @@ org/apache/catalina/users/mbeans-descriptors.xml
 org/apache/catalina/connector/mbeans-descriptors.xml
 org/apache/catalina/valves/mbeans-descriptors.xml
 
-ÔÙµ½
+å†åˆ°
 org/apache/jasper/servlet/mbeans-descriptors.xml
 
-¶øorg.apache.catalina.haÖĞÃ»ÓĞmbeans-descriptors.xml£¬
+è€Œorg.apache.catalina.haä¸­æ²¡æœ‰mbeans-descriptors.xmlï¼Œ
 
-haÄ¿Â¼ÖĞµÄ
+haç›®å½•ä¸­çš„
 authenticator
 deploy
 session
 tcp
-Ä¬ÈÏÃ»ÓĞ¼ÓÔØ
+é»˜è®¤æ²¡æœ‰åŠ è½½
 
 tribes.membership
-ÖĞµÄÄ¬ÈÏÒ²Ã»ÓĞ¼ÓÔØ
+ä¸­çš„é»˜è®¤ä¹Ÿæ²¡æœ‰åŠ è½½
 
 
 
-Ö»ÓÃµ½ÁËÁ½¸ö:
+åªç”¨åˆ°äº†ä¸¤ä¸ª:
 org.apache.tomcat.util.modeler.modules.MbeansDescriptorsIntrospectionSource
-Í¨¹ı·´ÉäÈ¡³ö·½·¨
+é€šè¿‡åå°„å–å‡ºæ–¹æ³•
 
 org.apache.tomcat.util.modeler.modules.MbeansDescriptorsDigesterSource
-½âÎömbeans-descriptors.xml
+è§£æmbeans-descriptors.xml
 
 StandardServer[8005]
 Catalina:type=Server
