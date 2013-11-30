@@ -92,6 +92,9 @@ public class Catalina {
     /**
      * The shared extensions class loader for this server.
      */
+    //默认是sun.misc.Launcher$AppClassLoader
+    //在Bootstrap中会通过setParentClassLoader设为:
+    //java.net.URLClassLoader
     protected ClassLoader parentClassLoader =
         Catalina.class.getClassLoader();
 
@@ -281,17 +284,21 @@ public class Catalina {
                                  "org.apache.catalina.core.StandardServer",
                                  "className");
         digester.addSetProperties("Server");
-        digester.addSetNext("Server",
-                            "setServer",
-                            "org.apache.catalina.Server");
-
+        digester.addSetNext("Server", //前缀模式
+                            "setServer", //方法名
+                            "org.apache.catalina.Server"); //方法参数类型
+        //这里没有className表示不能用用户提供的类来覆
+        //盖org.apache.catalina.deploy.NamingResources"
+        //而上面的Server可以
         digester.addObjectCreate("Server/GlobalNamingResources",
                                  "org.apache.catalina.deploy.NamingResourcesImpl");
         digester.addSetProperties("Server/GlobalNamingResources");
         digester.addSetNext("Server/GlobalNamingResources",
                             "setGlobalNamingResources",
                             "org.apache.catalina.deploy.NamingResourcesImpl");
-
+        //addObjectCreate的第二个参数为null，
+        //表示在xml文件中必须设置Listener元素的className属性
+        //否则在ObjectCreateRule的begin方法中无法实例化(抛出NullPointerException)
         digester.addObjectCreate("Server/Listener",
                                  null, // MUST be specified in the element
                                  "className");
@@ -761,6 +768,7 @@ public class Catalina {
     }
 
 
+    //检查java.io.tmpdir变量是否存在
     protected void initDirs() {
         String temp = System.getProperty("java.io.tmpdir");
         if (temp == null || (!(new File(temp)).exists())
@@ -776,7 +784,8 @@ public class Catalina {
         System.setErr(new SystemLogHandler(System.err));
     }
 
-
+    //设置catalina.useNaming与
+    //java.naming.factory.url.pkgs与java.naming.factory.initial这三个系统属性
     protected void initNaming() {
         // Setting additional variables
         if (!useNaming) {
@@ -786,7 +795,7 @@ public class Catalina {
             System.setProperty("catalina.useNaming", "true");
             String value = "org.apache.naming";
             String oldValue =
-                System.getProperty(javax.naming.Context.URL_PKG_PREFIXES);
+                System.getProperty(javax.naming.Context.URL_PKG_PREFIXES); //是java.naming.factory.url.pkgs
             if (oldValue != null) {
                 value = value + ":" + oldValue;
             }
@@ -795,7 +804,7 @@ public class Catalina {
                 log.debug("Setting naming prefix=" + value);
             }
             value = System.getProperty
-                (javax.naming.Context.INITIAL_CONTEXT_FACTORY);
+                (javax.naming.Context.INITIAL_CONTEXT_FACTORY); //是"java.naming.factory.initial"
             if (value == null) {
                 System.setProperty
                     (javax.naming.Context.INITIAL_CONTEXT_FACTORY,

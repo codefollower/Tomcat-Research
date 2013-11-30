@@ -22,6 +22,8 @@ target
 # test/webapp-virtual-webapp use it:
 # target
 work
+/conf/Catalina/
+
 build.properties
 mvn.properties
 .checkstyle

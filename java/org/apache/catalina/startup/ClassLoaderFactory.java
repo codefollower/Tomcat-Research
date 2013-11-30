@@ -71,6 +71,8 @@ public final class ClassLoaderFactory {
      *
      * @exception Exception if an error occurs constructing the class loader
      */
+    //只在org.apache.catalina.startup.Tool.main(String[])中使用
+    //unpacked是classes目录，packed是lib目录，表示抽取lib目录中的所有jar文件
     public static ClassLoader createClassLoader(File unpacked[],
                                                 File packed[],
                                                 final ClassLoader parent)

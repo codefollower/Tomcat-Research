@@ -30,6 +30,11 @@ import java.util.Properties;
  * @author Remy Maucherat
  * @version $Id$
  */
+//CatalinaProperties类主要用来加载catalina.properties文件
+//查找catalina.properties文件的顺序是:
+//先找-Dcatalina.config选项，如-Dcatalina.config=file:/E:/tomcat/catalina.properties
+//找不到再找${catalina.base}/conf/catalina.properties,
+//再找不到就用/org/apache/catalina/startup/catalina.properties
 public class CatalinaProperties {
 
     private static final org.apache.juli.logging.Log log=
@@ -60,8 +65,11 @@ public class CatalinaProperties {
         Throwable error = null;
 
         try {
+            //1. 先找-Dcatalina.config选项，如-Dcatalina.config=file:/E:/tomcat/catalina.properties
             String configUrl = getConfigUrl();
             if (configUrl != null) {
+                //因为URL很难写，所以可以用下面的形式更方便一点
+                //is = new File(configUrl).toURI().toURL().openStream(); //我加上的
                 is = (new URL(configUrl)).openStream();
             }
         } catch (Throwable t) {
@@ -70,6 +78,7 @@ public class CatalinaProperties {
 
         if (is == null) {
             try {
+                //2. 再找${catalina.base}/conf/catalina.properties
                 File home = new File(Bootstrap.getCatalinaBase());
                 File conf = new File(home, "conf");
                 File propsFile = new File(conf, "catalina.properties");
@@ -81,6 +90,7 @@ public class CatalinaProperties {
 
         if (is == null) {
             try {
+                //3. 最后用/org/apache/catalina/startup/catalina.properties
                 is = CatalinaProperties.class.getResourceAsStream
                     ("/org/apache/catalina/startup/catalina.properties");
             } catch (Throwable t) {

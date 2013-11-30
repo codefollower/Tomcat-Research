@@ -33,6 +33,7 @@ public final class SecurityClassLoad {
     public static void securityClassLoad(ClassLoader loader)
         throws Exception {
 
+        //加-Djava.security.manager时不为null，启用安全管理器
         if( System.getSecurityManager() == null ){
             return;
         }

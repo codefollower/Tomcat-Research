@@ -26,6 +26,8 @@ import org.apache.catalina.startup.CatalinaProperties;
  * @author the Catalina.java authors
  * @author Jean-Francois Arcand
  */
+//如果启用了安全管理器(System.getSecurityManager() != null)
+//这个类就会把package.access和package.definition这两个属性setProperty到Security
 public final class SecurityConfig{
     private static SecurityConfig singleton = null;
 
@@ -33,6 +35,9 @@ public final class SecurityConfig{
         org.apache.juli.logging.LogFactory.getLog( SecurityConfig.class );
 
 
+    
+    //catalina.properties多了"sun.beans."
+    //外部程序在没有授予权限的情况下是不能访问这些包的
     private static final String PACKAGE_ACCESS =  "sun.,"
                                                 + "org.apache.catalina."
                                                 + ",org.apache.jasper."
@@ -41,6 +46,7 @@ public final class SecurityConfig{
 
     // FIX ME package "javax." was removed to prevent HotSpot
     // fatal internal errors
+    //外部程序在没有授予权限的情况下是不能在这些包中定义类
     private static final String PACKAGE_DEFINITION= "java.,sun."
                                                 + ",org.apache.catalina."
                                                 + ",org.apache.coyote."
@@ -83,7 +89,7 @@ public final class SecurityConfig{
      * @return an instance of that class.
      */
     public static SecurityConfig newInstance(){
-        if (singleton == null){
+        if (singleton == null){ //因为这个类是在刚启动时由一个线程调用，所以不会存在并发问题，无需同步
             singleton = new SecurityConfig();
         }
         return singleton;

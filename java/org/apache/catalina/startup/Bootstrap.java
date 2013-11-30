@@ -60,8 +60,12 @@ public final class Bootstrap {
     private static final File catalinaBaseFile;
     private static final File catalinaHomeFile;
 
+    //见createClassLoader(String, ClassLoader)方法中的注释
     private static final Pattern PATH_PATTERN = Pattern.compile("(\".*?\")|(([^,])*)");
 
+    //得到catalinaBaseFile和catalinaHomeFile，
+    //如果没设置catalina.base，那么catalinaBaseFile的值就是catalinaHomeFile的值，
+    //默认情况下这两个字段是一样的
     static {
         // Will always be non-null
         String userDir = System.getProperty("user.dir");
@@ -85,8 +89,11 @@ public final class Bootstrap {
             File bootstrapJar = new File(userDir, "bootstrap.jar");
 
             if (bootstrapJar.exists()) {
+                //bootstrap.jar通常在bin目录中，所以bin目录的上级目录正好是Tomcat的安装目录
                 File f = new File(userDir, "..");
                 try {
+                    //getCanonicalPath可以把路径规范化:
+                    //如把“E:\tomcat\bin\..”变成“E:\tomcat\”
                     homeFile = f.getCanonicalFile();
                 } catch (IOException ioe) {
                     homeFile = f.getAbsoluteFile();
@@ -131,9 +138,11 @@ public final class Bootstrap {
     /**
      * Daemon reference.
      */
-    private Object catalinaDaemon = null;
+    private Object catalinaDaemon = null; //这个是对Catalina对象的引用
 
 
+    //默认情况下commonLoader=catalinaLoader=sharedLoader
+    //是一个java.net.URLClassLoader，指向${catalina.base}\lib目录和${catalina.base}\lib目录中的所有jar包
     protected ClassLoader commonLoader = null;
     protected ClassLoader catalinaLoader = null;
     protected ClassLoader sharedLoader = null;
@@ -159,6 +168,11 @@ public final class Bootstrap {
     }
 
 
+    //对应catalina.properties文件中的三个属性:
+    //common.loader
+    //server.loader
+    //shared.loader
+    //默认只配置了common.loader，其他两个为空
     private ClassLoader createClassLoader(String name, ClassLoader parent)
         throws Exception {
 
@@ -166,10 +180,15 @@ public final class Bootstrap {
         if ((value == null) || (value.equals("")))
             return parent;
 
-        value = replace(value);
+        value = replace(value); //替换其中的环境变量，如${catalina.base}、${catalina.home}
 
         List<Repository> repositories = new ArrayList<>();
 
+        //value的值中还是有双引号的，如: 
+        //"E:\tomcat\launch/lib","E:\tomcat\launch/lib/*.jar","E:\tomcat\launch/lib","E:\tomcat\launch/lib/*.jar"
+        //其中E:\tomcat\launch是${catalina.base}的值
+        //而字段PATH_PATTERN = Pattern.compile("(\".*?\")|(([^,])*)")中的(\".*?\")也有双引号
+        //返回后的值是[E:\tomcat\launch/lib, E:\tomcat\launch/lib/*.jar, E:\tomcat\launch/lib, E:\tomcat\launch/lib/*.jar]
         String[] repositoryPaths = getPaths(value);
 
         for (String repository : repositoryPaths) {
@@ -284,11 +303,17 @@ public final class Bootstrap {
 
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+    //以下这些方法都是通过反射调用Catalina类的对应方法，
+    //因为Bootstrap这个类在Tomcat打包发布时是放在bin\bootstrap.jar中，
+    //而Catalina类是放在lib\catalina.jar中,两个jar是用不同的ClassLoader加载的，
+    //所以不能在Bootstrap类中直接引用Catalina类，只能通过反射。
+    ////////////////////////////////////////////////////////////////////////////
 
     /**
      * Load daemon.
      */
-    private void load(String[] arguments)
+    private void load(String[] arguments) //通过反射，调用Catalina.load(String[])
         throws Exception {
 
         // Call the load() method
@@ -560,7 +585,7 @@ public final class Bootstrap {
 
 
     // Protected for unit testing
-    protected static String[] getPaths(String value) {
+    protected static String[] getPaths(String value) { //按逗号分隔，去掉每一项开头和结尾的双引号
 
         List<String> result = new ArrayList<>();
         Matcher matcher = PATH_PATTERN.matcher(value);
