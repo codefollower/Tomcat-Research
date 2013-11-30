@@ -1,0 +1,8 @@
+org.apache.coyote.http11.AbstractHttp11Processor中的
+一些setXXX属性是不能通过配置文件server.xml指定的，
+都是通过org.apache.coyote.http11.Http11Protocol.Http11ConnectionHandler.createProcessor()这样的方法把
+Http11Protocol中的参数传到AbstractHttp11Processor，
+
+org.apache.coyote.http11.Http11Protocol.Http11ConnectionHandler.createProcessor()中只有下面这个方法没调用
+void org.apache.coyote.http11.AbstractHttp11Processor.setCompressableMimeTypes(String[] compressableMimeTypes)
+这个方法从未被使用

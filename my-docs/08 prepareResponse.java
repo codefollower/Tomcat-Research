@@ -1,0 +1,21 @@
+CHUNKED和GZIP可以混合使用，
+但是要先gzip，然后再把gzip后的内容分chunked，不能先chunked再gzip，
+这样浏览器收到后把所有的chunk合并在一起再解压。
+
+
+响应输出有一个Filter链，
+链中的最后一个是org.apache.coyote.http11.InternalOutputBuffer.OutputStreamOutputBuffer(BIO)
+前面的Filter都不会真实输出字节，只是做一些特殊处理，比如gzip，chunked等，
+往socket中输出字节是在OutputStreamOutputBuffer中做，
+如果Filter链有VoidOutputFilter，那么意味着执行到VoidOutputFilter时，链就被断掉了，
+也就是不在调用下一个Filter的doWrite方法，从而不会往socket中输出字节。
+VoidOutputFilter通常用在HEAD请求，或者响应状态码是204,205,304
+
+
+http09协议是没有响应头的，也没有gzip和chunked，直接输出内容
+
+
+prepareResponse方法中要写响应行、响应头
+响应行、响应头在prepareResponse方法执行时默认情况下并不立即写往浏览器，
+因为org.apache.coyote.http11.InternalOutputBuffer还有个ByteChunk socketBuffer，
+写往消息体后才一次性输出到浏览器。

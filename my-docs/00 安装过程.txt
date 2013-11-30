@@ -1,0 +1,187 @@
+建个目录:
+E:\Tomcat7-SVN\svn\tomcat_2010-03-09
+
+切换到此目录:
+cd E:\Tomcat7-SVN\svn\tomcat_2010-03-09
+
+下载源文件:
+svn checkout http://svn.apache.org/repos/asf/tomcat/trunk tomcat
+
+svn export http://svn.apache.org/repos/asf/tomcat/trunk tomcat
+
+打开文件E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\build.properties.default
+
+把base.path=/usr/share/java
+改成base.path=E:/Tomcat7-SVN/export/tomcat_2010-12-10/tomcat/repository
+
+然后
+cd tomcat
+
+然后输入ant
+
+F:\apache-ant-1.7.1\bin\ant
+
+等5-6分钟后编译完成(其中会下载一些jar文件到E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
+BUILD SUCCESSFUL
+Total time: 5 minutes 16 seconds
+
+修改E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\conf\server.xml
+将
+<Connector port="8080" protocol="HTTP/1.1" 
+               connectionTimeout="20000" 
+               redirectPort="8443" />
+
+改成
+<Connector port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol" 
+               connectionTimeout="20000" 
+               redirectPort="8443" />
+
+运行:
+E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\bin>startup
+
+
+2010-3-9 19:49:37 org.apache.catalina.core.AprLifecycleListener init
+信息: The APR based Apache Tomcat Native library which allows optimal performanc
+e in production environments was not found on the java.library.path: D:\JavaSE\b
+in;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;F:\JavaCC\javacc-5.0
+\bin;D:\Python26\Lib\site-packages\django\bin;D:\Python26;D:\JavaSE\bin;D:\JavaF
+X\bin;D:\JavaFX\emulator\bin;E:\Play1.1;E:\Play;D:\oracle\ora90\bin;D:\Oracle11\
+zhh\product\11.1.0\db_1\bin;D:\Svn;D:\Program Files\MySQL\MySQL Server 5.1\bin;D
+:\oracle\ora90\Apache\Perl\5.00503\bin\mswin32-x86;C:\Program Files\Oracle\jre\1
+.1.8\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program File
+s\Common Files\Thunder Network\KanKan\Codecs;C:\Program Files\Microsoft SQL Serv
+er\80\Tools\BINN
+2010-3-9 19:49:37 org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
+信息: Using a shared selector for servlet write/read
+2010-3-9 19:49:37 org.apache.coyote.http11.Http11NioProtocol init
+信息: Initializing Coyote HTTP/1.1 on http-8080
+2010-3-9 19:49:37 org.apache.coyote.ajp.AjpProtocol init
+信息: Initializing Coyote AJP/1.3 on ajp-8009
+2010-3-9 19:49:37 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 771 ms
+2010-3-9 19:49:37 org.apache.catalina.core.StandardService startInternal
+信息: Starting service Catalina
+2010-3-9 19:49:37 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/7.0.0-dev
+2010-3-9 19:49:37 org.apache.catalina.startup.HostConfig deployDescriptor
+信息: Deploying configuration descriptor host-manager.xml
+2010-3-9 19:49:38 org.apache.catalina.startup.HostConfig deployDescriptor
+信息: Deploying configuration descriptor manager.xml
+2010-3-9 19:49:38 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory docs
+2010-3-9 19:49:38 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory examples
+2010-3-9 19:49:38 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory ROOT
+2010-3-9 19:49:38 org.apache.coyote.http11.Http11NioProtocol start
+信息: Starting Coyote HTTP/1.1 on http-8080
+2010-3-9 19:49:38 org.apache.coyote.ajp.AjpProtocol start
+信息: Starting Coyote AJP/1.3 on ajp-8009
+2010-3-9 19:49:38 org.apache.catalina.startup.Catalina startInternal
+信息: Server startup in 864 ms
+
+
+
+
+
+
+
+Tomcat7-SVN尝鲜
+
+1.建个新目录:
+E:\Tomcat7-SVN\svn\tomcat_2010-03-09
+
+2.切换到此目录:
+cd E:\Tomcat7-SVN\svn\tomcat_2010-03-09
+
+3.用svn下载源文件:
+svn checkout http://svn.apache.org/repos/asf/tomcat/trunk tomcat
+
+4.
+打开文件 E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\build.properties.default
+把base.path=/usr/share/java
+改成base.path=E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
+
+5.用ant编译Tomcat7-SVN
+先:
+cd tomcat
+
+然后输入:
+ant
+
+等5-6分钟后编译完成(其间会下载一些jar文件到E:/Tomcat7-SVN/svn/tomcat_2010-03-09/tomcat/repository
+
+BUILD SUCCESSFUL
+Total time: 5 minutes 16 seconds
+
+
+6.
+修改E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\conf\server.xml
+将
+<Connector port="8080" protocol="HTTP/1.1" 
+               connectionTimeout="20000" 
+               redirectPort="8443" />
+
+改成
+<Connector port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol" 
+               connectionTimeout="20000" 
+               redirectPort="8443" />
+
+7.运行:
+E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\bin>startup
+
+输出信息片段:
+---------------------
+2010-3-9 19:49:38 org.apache.coyote.http11.Http11NioProtocol start
+信息: Starting Coyote HTTP/1.1 on http-8080
+2010-3-9 19:49:38 org.apache.coyote.ajp.AjpProtocol start
+信息: Starting Coyote AJP/1.3 on ajp-8009
+2010-3-9 19:49:38 org.apache.catalina.startup.Catalina startInternal
+信息: Server startup in 864 ms
+
+
+8.测试异步API
+源文件在
+E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\webapps\examples\jsp\async
+E:\Tomcat7-SVN\svn\tomcat_2010-03-09\tomcat\output\build\webapps\examples\WEB-INF\classes\async
+
+在浏览器中输入：
+http://localhost:8080/examples/async/async0
+
+显示结果:
+Async dispatch worked:+1268136726125
+
+输入：
+http://localhost:8080/examples/async/async1
+
+显示结果:
+Output from async1.jsp Type is ASYNC Completed async request at 2010-03-09
+
+
+输入：
+http://localhost:8080/examples/async/async2
+
+显示结果:
+Output from background thread. Time:1268136913468
+
+输入：
+http://localhost:8080/examples/async/async3
+
+显示结果:
+Output from async3.jsp Type is ASYNC Completed async 3 request at 2010-03-09
+
+输入：
+http://localhost:8080/examples/async/stockticker
+
+显示结果:
+STOCK#GOOG#435.86#0.43#1
+STOCK#ASF#1016.22#0.67#2
+STOCK#YHOO#27.83#-0.05#3
+STOCK#YHOO#27.13#-0.70#4
+STOCK#ASF#1015.82#-0.40#5
+STOCK#YHOO#26.16#-0.97#6
+STOCK#ASF#1016.24#0.41#7
+STOCK#ASF#1015.65#-0.58#8
+STOCK#GOOG#436.80#0.95#9
+STOCK#GOOG#437.56#0.76#10
+..........
