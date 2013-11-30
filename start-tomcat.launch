@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>  
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">  
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">  
+<listEntry value="/tomcat-research/java/org/apache/catalina/startup/Bootstrap.java"/>  
+</listAttribute>  
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">  
+<listEntry value="1"/>  
+</listAttribute>  
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.apache.catalina.startup.Bootstrap"/>  
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>  
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="tomcat-research"/>  
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.home=launch -Dcatalina.base=launch -Djava.endorsed.dirs=launch/endorsed -Djava.io.tmpdir=launch/temp -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.util.logging.config.file=launch/conf/logging.properties"/>
+</launchConfiguration>  
