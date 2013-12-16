@@ -19,6 +19,8 @@ package org.apache.jasper.compiler;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -214,6 +216,17 @@ class TagLibraryInfoImpl extends TagLibraryInfo implements TagConstants {
         } else if (uri.charAt(0) != '/') {
             // noroot_rel_uri, resolve against the current JSP page
             uri = ctxt.resolveRelativeUri(uri);
+            try {
+                // Can't use RequestUtils.normalize since that package is not
+                // available to Jasper.
+                uri = (new URI(uri)).normalize().toString();
+                if (uri.startsWith("../")) {
+                    // Trying to go outside context root
+                    err.jspError("jsp.error.taglibDirective.uriInvalid", uri);
+                }
+            } catch (URISyntaxException e) {
+                err.jspError("jsp.error.taglibDirective.uriInvalid", uri);
+            }
         }
 
         URL url = null;
@@ -270,7 +283,7 @@ class TagLibraryInfoImpl extends TagLibraryInfo implements TagConstants {
         if (path == null) {
             // path is required
             err.jspError("jsp.error.tagfile.missingPath");
-        } else if (!path.startsWith("/WEB-INF/tags")) {
+        } else if (!path.startsWith("/META-INF/tags") && !path.startsWith("/WEB-INF/tags")) {
             err.jspError("jsp.error.tagfile.illegalPath", path);
         }
 

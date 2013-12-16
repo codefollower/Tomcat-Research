@@ -23,11 +23,15 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
+import javax.management.ObjectName;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.Host;
@@ -72,9 +76,11 @@ public class StandardRoot extends LifecycleMBeanBase
 
     private final Cache cache = new Cache(this);
     private boolean cachingAllowed = true;
+    private ObjectName cacheJmxName = null;
 
     private boolean traceLockedFiles = false;
-    private final Set<WebResourceTraceWrapper> tracedResources = new HashSet<>();
+    private final Set<WebResourceTraceWrapper> tracedResources =
+            Collections.newSetFromMap(new ConcurrentHashMap<WebResourceTraceWrapper,Boolean>());
 
     // Constructs to make iteration over all WebResourceSets simpler
     private final ArrayList<WebResourceSet> mainResources = new ArrayList<>();
@@ -239,6 +245,7 @@ public class StandardRoot extends LifecycleMBeanBase
             boolean useClassLoaderResources) {
         WebResource result = null;
         WebResource virtual = null;
+        WebResource mainEmpty = null;
         for (ArrayList<WebResourceSet> list : allResources) {
             for (WebResourceSet webResourceSet : list) {
                 if (useClassLoaderResources || !webResourceSet.getClassLoaderOnly()) {
@@ -246,8 +253,12 @@ public class StandardRoot extends LifecycleMBeanBase
                     if (result.exists()) {
                         return result;
                     }
-                    if (virtual == null && result.isVirtual()) {
-                        virtual = result;
+                    if (virtual == null) {
+                        if (result.isVirtual()) {
+                            virtual = result;
+                        } else if (main.equals(webResourceSet)) {
+                            mainEmpty = result;
+                        }
                     }
                 }
             }
@@ -259,7 +270,7 @@ public class StandardRoot extends LifecycleMBeanBase
         }
 
         // Default is empty resource in main resources
-        return new EmptyResource(this, path);
+        return mainEmpty;
     }
 
     @Override
@@ -422,6 +433,9 @@ public class StandardRoot extends LifecycleMBeanBase
     @Override
     public void setCachingAllowed(boolean cachingAllowed) {
         this.cachingAllowed = cachingAllowed;
+        if (!cachingAllowed) {
+            cache.clear();
+        }
     }
 
     @Override
@@ -450,23 +464,34 @@ public class StandardRoot extends LifecycleMBeanBase
     }
 
     @Override
-    public void setCacheMaxObjectSize(long cacheMaxObjectSize) {
+    public void setCacheMaxObjectSize(int cacheMaxObjectSize) {
         cache.setMaxObjectSize(cacheMaxObjectSize);
     }
 
     @Override
-    public long getCacheMaxObjectSize() {
+    public int getCacheMaxObjectSize() {
         return cache.getMaxObjectSize();
     }
 
     @Override
     public void setTraceLockedFiles(boolean traceLockedFiles) {
         this.traceLockedFiles = traceLockedFiles;
+        if (!traceLockedFiles) {
+            tracedResources.clear();
+        }
     }
 
     @Override
     public boolean getTraceLockedFiles() {
         return traceLockedFiles;
+    }
+
+    public List<String> getTraceResources() {
+        List<String> result = new ArrayList<>(tracedResources.size());
+        for (WebResourceTraceWrapper traceWrapper : tracedResources) {
+            result.add(traceWrapper.toString());
+        }
+        return result;
     }
 
     @Override
@@ -563,6 +588,8 @@ public class StandardRoot extends LifecycleMBeanBase
     @Override
     protected void initInternal() throws LifecycleException {
         super.initInternal();
+
+        cacheJmxName = register(cache, getObjectNameKeyProperties() + ",name=Cache");
 
         // Ensure support for jar:war:file:/ URLs will be available (required
         // for resource JARs in packed WAR files).
@@ -664,6 +691,8 @@ public class StandardRoot extends LifecycleMBeanBase
                 webResourceSet.destroy();
             }
         }
+
+        unregister(cacheJmxName);
 
         super.destroyInternal();
     }

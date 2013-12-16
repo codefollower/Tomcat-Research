@@ -269,18 +269,17 @@ public abstract class AbstractReplicatedMap<K,V>
                 for (FaultyMember faultyMember : faultyMembers) {
                     memberDisappeared(faultyMember.getMember());
                 }
+                throw ce;
             }
         }
         //update our map of members, expire some if we didn't receive a ping back
         synchronized (mapMembers) {
-            Iterator<Map.Entry<Member, Long>> it = mapMembers.entrySet().iterator();
+            Member[] members = mapMembers.keySet().toArray(new Member[mapMembers.size()]);
             long now = System.currentTimeMillis();
-            while ( it.hasNext() ) {
-                Map.Entry<Member,Long> entry = it.next();
-                long access = entry.getValue().longValue();
+            for (Member member : members) {
+                long access = mapMembers.get(member).longValue();
                 if ( (now - access) > timeout ) {
-                    it.remove();
-                    memberDisappeared(entry.getKey());
+                    memberDisappeared(member);
                 }
             }
         }//synch
@@ -334,11 +333,11 @@ public abstract class AbstractReplicatedMap<K,V>
 
     @Override
     public void finalize() {
-        try {broadcast(MapMessage.MSG_STOP,false); }catch ( Exception ignore){}
-        //cleanup
         if (this.rpcChannel != null) {
             this.rpcChannel.breakdown();
         }
+        try {broadcast(MapMessage.MSG_STOP,false); }catch ( Exception ignore){}
+        //cleanup
         if (this.channel != null) {
             this.channel.removeChannelListener(this);
             this.channel.removeMembershipListener(this);
@@ -769,7 +768,9 @@ public abstract class AbstractReplicatedMap<K,V>
                 return; //the member was not part of our map.
             }
         }
-
+        if (log.isInfoEnabled())
+            log.info("Member["+member+"] disappeared. Related map entries will be relocated to the new node.");
+        long start = System.currentTimeMillis();
         Iterator<Map.Entry<K,MapEntry<K,V>>> i = innerMap.entrySet().iterator();
         while (i.hasNext()) {
             Map.Entry<K,MapEntry<K,V>> e = i.next();
@@ -817,6 +818,8 @@ public abstract class AbstractReplicatedMap<K,V>
             }
 
         } //while
+        long complete = System.currentTimeMillis() - start;
+        if (log.isInfoEnabled()) log.info("Relocation of map entries was complete in " + complete + " ms.");
     }
 
     public int getNextBackupIndex() {
