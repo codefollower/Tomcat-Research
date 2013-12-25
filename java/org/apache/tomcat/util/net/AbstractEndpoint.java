@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
-import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -93,22 +92,6 @@ public abstract class AbstractEndpoint<S> {
         }
         protected final String getThreadName() {
             return threadName;
-        }
-    }
-
-
-    protected static class PrivilegedSetTccl implements PrivilegedAction<Void> {
-
-        private ClassLoader cl;
-
-        PrivilegedSetTccl(ClassLoader cl) {
-            this.cl = cl;
-        }
-
-        @Override
-        public Void run() {
-            Thread.currentThread().setContextClassLoader(cl);
-            return null;
         }
     }
 
@@ -538,14 +521,16 @@ public abstract class AbstractEndpoint<S> {
                 //this is our internal one, so we need to shut it down
                 ThreadPoolExecutor tpe = (ThreadPoolExecutor) executor;
                 tpe.shutdownNow();
-                try {
-                    tpe.awaitTermination(getExecutorTerminationTimeoutMillis(),
-                            TimeUnit.MILLISECONDS);
-                } catch (InterruptedException e) {
-                    // Ignore
-                }
-                if (tpe.isTerminating()) {
-                    getLog().warn(sm.getString("endpoint.warn.executorShutdown", getName()));
+                long timeout = getExecutorTerminationTimeoutMillis();
+                if (timeout > 0) {
+                    try {
+                        tpe.awaitTermination(timeout, TimeUnit.MILLISECONDS);
+                    } catch (InterruptedException e) {
+                        // Ignore
+                    }
+                    if (tpe.isTerminating()) {
+                        getLog().warn(sm.getString("endpoint.warn.executorShutdown", getName()));
+                    }
                 }
                 TaskQueue queue = (TaskQueue) tpe.getQueue();
                 queue.setParent(null);
