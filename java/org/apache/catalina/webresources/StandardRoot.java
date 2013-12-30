@@ -37,10 +37,10 @@ import org.apache.catalina.Context;
 import org.apache.catalina.Host;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.LifecycleState;
+import org.apache.catalina.TrackedWebResource;
 import org.apache.catalina.WebResource;
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.WebResourceSet;
-import org.apache.catalina.WebResourceTraceWrapper;
 import org.apache.catalina.util.LifecycleMBeanBase;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
@@ -59,8 +59,7 @@ import org.apache.tomcat.util.res.StringManager;
  * String)} represents the absolute path to a file.
  * </p>
  */
-public class StandardRoot extends LifecycleMBeanBase
-        implements WebResourceRoot {
+public class StandardRoot extends LifecycleMBeanBase implements WebResourceRoot {
 
     private static final Log log = LogFactory.getLog(Cache.class);
     protected static final StringManager sm =
@@ -78,9 +77,9 @@ public class StandardRoot extends LifecycleMBeanBase
     private boolean cachingAllowed = true;
     private ObjectName cacheJmxName = null;
 
-    private boolean traceLockedFiles = false;
-    private final Set<WebResourceTraceWrapper> tracedResources =
-            Collections.newSetFromMap(new ConcurrentHashMap<WebResourceTraceWrapper,Boolean>());
+    private boolean trackLockedFiles = false;
+    private final Set<TrackedWebResource> trackedResources =
+            Collections.newSetFromMap(new ConcurrentHashMap<TrackedWebResource,Boolean>());
 
     // Constructs to make iteration over all WebResourceSets simpler
     private final ArrayList<WebResourceSet> mainResources = new ArrayList<>();
@@ -464,32 +463,37 @@ public class StandardRoot extends LifecycleMBeanBase
     }
 
     @Override
-    public void setCacheMaxObjectSize(int cacheMaxObjectSize) {
-        cache.setMaxObjectSize(cacheMaxObjectSize);
-    }
-
-    @Override
-    public int getCacheMaxObjectSize() {
-        return cache.getMaxObjectSize();
-    }
-
-    @Override
-    public void setTraceLockedFiles(boolean traceLockedFiles) {
-        this.traceLockedFiles = traceLockedFiles;
-        if (!traceLockedFiles) {
-            tracedResources.clear();
+    public void setCacheObjectMaxSize(int cacheObjectMaxSize) {
+        cache.setObjectMaxSize(cacheObjectMaxSize);
+        // Don't enforce the limit when not running as attributes may get set in
+        // any order.
+        if (getState().isAvailable()) {
+            cache.enforceObjectMaxSizeLimit();
         }
     }
 
     @Override
-    public boolean getTraceLockedFiles() {
-        return traceLockedFiles;
+    public int getCacheObjectMaxSize() {
+        return cache.getObjectMaxSize();
     }
 
-    public List<String> getTraceResources() {
-        List<String> result = new ArrayList<>(tracedResources.size());
-        for (WebResourceTraceWrapper traceWrapper : tracedResources) {
-            result.add(traceWrapper.toString());
+    @Override
+    public void setTrackLockedFiles(boolean trackLockedFiles) {
+        this.trackLockedFiles = trackLockedFiles;
+        if (!trackLockedFiles) {
+            trackedResources.clear();
+        }
+    }
+
+    @Override
+    public boolean getTrackLockedFiles() {
+        return trackLockedFiles;
+    }
+
+    public List<String> getTrackedResources() {
+        List<String> result = new ArrayList<>(trackedResources.size());
+        for (TrackedWebResource resource : trackedResources) {
+            result.add(resource.toString());
         }
         return result;
     }
@@ -542,14 +546,14 @@ public class StandardRoot extends LifecycleMBeanBase
 
 
     @Override
-    public void registerTracedResource(WebResourceTraceWrapper traceResource) {
-        tracedResources.add(traceResource);
+    public void registerTrackedResource(TrackedWebResource trackedResource) {
+        trackedResources.add(trackedResource);
     }
 
 
     @Override
-    public void deregisterTracedResource(WebResourceTraceWrapper traceResource) {
-        tracedResources.remove(traceResource);
+    public void deregisterTrackedResource(TrackedWebResource trackedResource) {
+        trackedResources.remove(trackedResource);
     }
 
 
@@ -642,6 +646,8 @@ public class StandardRoot extends LifecycleMBeanBase
             classResource.start();
         }
 
+        cache.enforceObjectMaxSizeLimit();
+
         setState(LifecycleState.STARTING);
     }
 
@@ -668,13 +674,13 @@ public class StandardRoot extends LifecycleMBeanBase
         }
         classResources.clear();
 
-        for (WebResourceTraceWrapper tracedResource : tracedResources) {
+        for (TrackedWebResource trackedResource : trackedResources) {
             log.error(sm.getString("standardRoot.lockedFile",
                     context.getName(),
-                    tracedResource.getName()),
-                    tracedResource.getCreatedBy());
+                    trackedResource.getName()),
+                    trackedResource.getCreatedBy());
             try {
-                tracedResource.close();
+                trackedResource.close();
             } catch (IOException e) {
                 // Ignore
             }

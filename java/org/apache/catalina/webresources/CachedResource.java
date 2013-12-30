@@ -39,7 +39,7 @@ public class CachedResource implements WebResource {
     private final StandardRoot root;
     private final String webAppPath;
     private final long ttl;
-    private final int maxObjectSizeBytes;
+    private final int objectMaxSizeBytes;
 
     private volatile WebResource webResource;
     private volatile long nextCheck;
@@ -55,11 +55,11 @@ public class CachedResource implements WebResource {
 
 
     public CachedResource(StandardRoot root, String path, long ttl,
-            int maxObjectSizeBytes) {
+            int objectMaxSizeBytes) {
         this.root = root;
         this.webAppPath = path;
         this.ttl = ttl;
-        this.maxObjectSizeBytes = maxObjectSizeBytes;
+        this.objectMaxSizeBytes = objectMaxSizeBytes;
     }
 
     protected boolean validate(boolean useClassLoaderResources) {
@@ -239,7 +239,7 @@ public class CachedResource implements WebResource {
     public byte[] getContent() {
         byte[] cachedContent = this.cachedContent;
         if (cachedContent == null) {
-            if (getContentLength() > maxObjectSizeBytes) {
+            if (getContentLength() > objectMaxSizeBytes) {
                 return null;
             }
             cachedContent = webResource.getContent();
@@ -278,11 +278,11 @@ public class CachedResource implements WebResource {
     }
 
     // Assume that the cache entry will always include the content unless the
-    // resource content is larger than maxObjectSizeBytes. This isn't always the
+    // resource content is larger than objectMaxSizeBytes. This isn't always the
     // case but it makes tracking the current cache size easier.
     long getSize() {
         long result = CACHE_ENTRY_SIZE;
-        if (getContentLength() <= maxObjectSizeBytes) {
+        if (getContentLength() <= objectMaxSizeBytes) {
             result += getContentLength();
         }
         return result;

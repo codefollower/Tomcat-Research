@@ -37,13 +37,15 @@ public class Cache {
     private static final long TARGET_FREE_PERCENT_GET = 5;
     private static final long TARGET_FREE_PERCENT_BACKGROUND = 10;
 
+    // objectMaxSize must be < maxSize/20
+    private static final int OBJECT_MAX_SIZE_FACTOR = 20;
+
     private final StandardRoot root;
     private final AtomicLong size = new AtomicLong(0);
 
     private long ttl = 5000;
     private long maxSize = 10 * 1024 * 1024;
-    private int maxObjectSize =
-            (int) (maxSize / 20 > Integer.MAX_VALUE ? Integer.MAX_VALUE : maxSize / 20);
+    private int objectMaxSize = (int) maxSize/OBJECT_MAX_SIZE_FACTOR;
 
     private AtomicLong lookupCount = new AtomicLong(0);
     private AtomicLong hitCount = new AtomicLong(0);
@@ -72,9 +74,9 @@ public class Cache {
 
         if (cacheEntry == null) {
             // Local copy to ensure consistency
-            int maxObjectSizeBytes = getMaxObjectSizeBytes();
+            int objectMaxSizeBytes = getObjectMaxSizeBytes();
             CachedResource newCacheEntry =
-                    new CachedResource(root, path, getTtl(), maxObjectSizeBytes);
+                    new CachedResource(root, path, getTtl(), objectMaxSizeBytes);
 
             // Concurrent callers will end up with the same CachedResource
             // instance
@@ -85,7 +87,7 @@ public class Cache {
                 cacheEntry = newCacheEntry;
                 cacheEntry.validate(useClassLoaderResources);
 
-                // Even if the resource content larger than maxObjectSizeBytes
+                // Even if the resource content larger than objectMaxSizeBytes
                 // there is still benefit in caching the resource metadata
 
                 long delta = cacheEntry.getSize();
@@ -211,23 +213,34 @@ public class Cache {
         return hitCount.get();
     }
 
-    public void setMaxObjectSize(int maxObjectSize) {
-        if (maxObjectSize * 1024L > Integer.MAX_VALUE) {
-            log.warn(sm.getString("cache.maxObjectSizeTooBig",
-                    Integer.valueOf(maxObjectSize)));
-            this.maxObjectSize = Integer.MAX_VALUE;
+    public void setObjectMaxSize(int objectMaxSize) {
+        if (objectMaxSize * 1024L > Integer.MAX_VALUE) {
+            log.warn(sm.getString("cache.objectMaxSizeTooBigBytes", Integer.valueOf(objectMaxSize)));
+            this.objectMaxSize = Integer.MAX_VALUE;
         }
         // Internally bytes, externally kilobytes
-        this.maxObjectSize = maxObjectSize * 1024;
+        this.objectMaxSize = objectMaxSize * 1024;
     }
 
-    public int getMaxObjectSize() {
+    public int getObjectMaxSize() {
         // Internally bytes, externally kilobytes
-        return maxObjectSize / 1024;
+        return objectMaxSize / 1024;
     }
 
-    public int getMaxObjectSizeBytes() {
-        return maxObjectSize;
+    public int getObjectMaxSizeBytes() {
+        return objectMaxSize;
+    }
+
+    void enforceObjectMaxSizeLimit() {
+        long limit = maxSize / OBJECT_MAX_SIZE_FACTOR;
+        if (limit > Integer.MAX_VALUE) {
+            return;
+        }
+        if (objectMaxSize > limit) {
+            log.warn(sm.getString("cache.objectMaxSizeTooBig",
+                    Integer.valueOf(objectMaxSize / 1024), Integer.valueOf((int)limit / 1024)));
+            objectMaxSize = (int) limit;
+        }
     }
 
     public void clear() {
