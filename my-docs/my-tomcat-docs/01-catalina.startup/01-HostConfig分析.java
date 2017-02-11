@@ -17,7 +17,7 @@ name比path多了一个版本号，
 
 2.
 HostConfig类有这个变量:
-	protected boolean deployXML = false;
+    protected boolean deployXML = false;
     protected boolean copyXML = false;
     protected boolean unpackWARs = false;
 
